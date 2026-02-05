@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安藤商事株式会社 - 医療機器・医薬品輸入販売の専門パートナー</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "游ゴシック", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fafafa;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #2c5282;
+            text-decoration: none;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2c5282;
+        }
+        .hero {
+            background: linear-gradient(135deg, #2c5282 0%, #4299e1 100%);
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .section {
+            padding: 70px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2em;
+            color: #2c5282;
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            color: #666;
+            font-size: 1.05em;
+        }
+        .about {
+            background: #fff;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 1.4em;
+            color: #2c5282;
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .about-box {
+            background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+            padding: 40px;
+            border-radius: 15px;
+        }
+        .about-box h4 {
+            color: #2c5282;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        .services {
+            background: #f7fafc;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .service-card {
+            background: #fff;
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 1.15em;
+        }
+        .service-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        .partner {
+            background: #fff;
+        }
+        .partner-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .partner-logo {
+            font-size: 2em;
+            color: #c53030;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        .partner-content p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+        .partner-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #c53030 0%, #e53e3e 100%);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            margin-top: 30px;
+            font-weight: 500;
+        }
+        .contact {
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+            color: #fff;
+        }
+        .contact .section-title h2,
+        .contact .section-title p {
+            color: #fff;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+        }
+        .contact-item h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .contact-item p {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        footer {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            .about-content,
+            .services-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">安藤商事株式会社</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">会社情報</a></li>
+                    <li><a href="#services">事業紹介</a></li>
+                    <li><a href="#partner">パートナー</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>中国市場への架け橋</h1>
+            <p>医療機器・医薬品・サプリメントの優良メーカー発掘から、中国市場参入まで。<br>上海を中心に、日本品質の製品を中国へ届ける専門パートナー。</p>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-title">
+                <h2>会社情報</h2>
+                <p>安藤商事は、中国市場でのビジネス展開を全面的にサポートいたします</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>中国市場のパートナーとして</h3>
+                    <p>安藤商事は、日本企業の中国市場参入を情熱をもってサポートしております。単に輸入販売を行うのではなく、厳選された優良メーカーとの出会いを創出し、中国での事業成長を共に実現いたします。</p>
+                    <p>上海およびその周辺地域は、中国における医療機器・医薬品流通の最重要エリアです。当社は、この地域でのネットワークと専門知識を活かし、クライアント企業の成功に貢献いたします。</p>
+                </div>
+                <div class="about-box">
+                    <h4>企業理念</h4>
+                    <p>「良きパートナーと共に、良き製品を、良き市場へ」</p>
+                    <p style="margin-top: 20px; color: #666;">誠実な姿勢と専門性で、、日本の優良企業と中国市場をつなぐ懸け橋となります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-title">
+                <h2>事業紹介</h2>
+                <p>中国市場進出に必要なあらゆるサポートを提供いたします</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>優良メーカー発掘</h3>
+                    <p>医療機器、医薬品、サプリメント分野における日本の優良メーカーを発掘し、中国市場での事業展開に最適なパートナー候補をご提案いたします。品質・信頼性を重視した厳選リサーチを行います。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>中国登録支援</h3>
+                    <p>中国での製品販売に必要な各種登録手続き（NMPA登録等）をスムーズに進めるため、専門機関との連携やアドバイスを提供いたします。複雑な規制対応も安心してお任せください。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏪</div>
+                    <h3>販売チャネル開拓</h3>
+                    <p>上海および周辺地域における最適な販売チャネルの開拓を支援いたします。病院、診療所、薬局、流通企業など、中国医療機器流通の主要プレイヤーとの橋渡しをいたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partner" class="section partner">
+        <div class="container">
+            <div class="section-title">
+                <h2>主要パートナー</h2>
+                <p>中国トップクラスの医療機器流通企業との連携</p>
+            </div>
+            <div class="partner-content">
+                <div class="partner-logo">華潤国邦（China Resources Guobang）</div>
+                <p>華潤国邦は、上海エリア最大級の医療機器・医薬品流通企業であり、中国を代表する国営企業グループ「華潤（China Resources）」傘下の専門会社 です。<br><br>
+                同社は上海市および周辺地域における病院、診療所、薬局などへの医療物資供給において圧倒的なシェアを持ち、中国医療業界において最も影響力のある企業の一つ です。<br><br>
+                安藤商事は、華潤国邦との密接な連携により、日本の優良な医療機器・医薬品・サブリメントを中国市場へ効率的に導入・販売するルートを確保しております。</p>
+                <div class="partner-badge">上海エリア最大級の医療機器流通企業</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>お問い合わせ</h2>
+                <p>中國市場でのビジネス展開なら、ぜひお問い合わせください</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>メールでのお問い合わせ</h4>
+                    <p>info@antsuhouji.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>所在地</h4>
+                    <p>中国・上海市中心部</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 安藤商事株式会社. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.7;">医療機器・医薬品の中国市場進出は安藤商事にお任せください</p>
+        </div>
+    </footer>
+</body>
+</html>
