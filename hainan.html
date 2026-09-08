@@ -16975,10 +16975,84 @@
           );
         }
         const INFO_LABELS = {
-          zh: { department: "科室", dosageForm: "剂型", spec: "规格", approvalRegion: "获批地区/国家", approvalDate: "获批时间", landingDate: "首次落地时间", domesticListed: "国内上市", domesticDate: "国内上市时间" },
-          ja: { department: "診療科", dosageForm: "剤形", spec: "規格", approvalRegion: "承認地域・国", approvalDate: "承認年月日", landingDate: "初回導入日", domesticListed: "国内上市状況", domesticDate: "国内上市日" },
-          en: { department: "Department", dosageForm: "Dosage Form", spec: "Specification", approvalRegion: "Approved Region/Country", approvalDate: "Approval Date", landingDate: "First Landing Date", domesticListed: "Listed in China", domesticDate: "China Listing Date" },
+          zh: { department: "科室", dosageForm: "剂型", spec: "规格", packaging: "包装", storage: "存储条件", approvalRegion: "获批地区/国家", approvalDate: "获批时间", landingDate: "首次落地时间", domesticListed: "中国上市", domesticDate: "中国上市时间" },
+          ja: { department: "診療科", dosageForm: "剤形", spec: "規格", packaging: "包装", storage: "保管条件", approvalRegion: "承認地域・国", approvalDate: "承認年月日", landingDate: "初回導入日", domesticListed: "中国上市状況", domesticDate: "中国上市日" },
+          en: { department: "Department", dosageForm: "Dosage Form", spec: "Specification", packaging: "Packaging", storage: "Storage", approvalRegion: "Approved Region/Country", approvalDate: "Approval Date", landingDate: "First Landing Date", domesticListed: "Listed in China", domesticDate: "China Listing Date" },
         };
+        const INFO_DIC = {
+          dept: {
+            "眼科": ["眼科", "Ophthalmology"], "肿瘤科": ["腫瘍科", "Oncology"], "肿瘤内科": ["腫瘍内科", "Medical Oncology"], "肿瘤": ["腫瘍", "Oncology"],
+            "耳鼻喉科": ["耳鼻咽喉科", "ENT"], "耳鼻咽喉科": ["耳鼻咽喉科", "ENT"], "内科": ["内科", "Internal Medicine"],
+            "骨科": ["整形外科", "Orthopedics"], "医学检验科": ["臨床検査科", "Clinical Laboratory"], "检验科": ["臨床検査科", "Clinical Laboratory"],
+            "儿科": ["小児科", "Pediatrics"], "普外科": ["一般外科", "General Surgery"], "皮肤科": ["皮膚科", "Dermatology"],
+            "呼吸科": ["呼吸器科", "Respiratory Medicine"], "呼吸内科": ["呼吸器内科", "Respiratory Medicine"],
+            "血液科": ["血液科", "Hematology"], "血液内科": ["血液内科", "Hematology"],
+            "心血管内科": ["循環器内科", "Cardiovascular Medicine"], "心内科": ["循環器内科", "Cardiology"], "神经内科": ["神経内科", "Neurology"],
+            "神经外科": ["脳神経外科", "Neurosurgery"], "泌尿外科": ["泌尿器科", "Urology"], "外科": ["外科", "Surgery"],
+            "医疗美容科": ["美容医療科", "Aesthetic Medicine"], "医学美容科": ["美容医療科", "Aesthetic Medicine"], "医美科": ["美容医療科", "Aesthetic Medicine"], "医美": ["美容医療", "Aesthetic Medicine"],
+            "整形外科": ["形成外科", "Plastic Surgery"], "医学影像科": ["画像診断科", "Radiology"], "医学影像科(放射治疗专业）": ["画像診断科（放射線治療）", "Radiology (Radiotherapy)"],
+            "内分泌科": ["内分泌科", "Endocrinology"], "内分泌": ["内分泌", "Endocrinology"], "烧伤科": ["熱傷科", "Burn Care"],
+            "消化内科": ["消化器内科", "Gastroenterology"], "消化科": ["消化器科", "Gastroenterology"], "妇科": ["婦人科", "Gynecology"], "妇产科": ["産婦人科", "Obstetrics & Gynecology"],
+            "麻醉科": ["麻酔科", "Anesthesiology"], "口腔科": ["歯科口腔外科", "Dentistry & Oral Surgery"], "牙科": ["歯科", "Dentistry"],
+            "介入放射学": ["インターベンション放射線科", "Interventional Radiology"], "介入放射科": ["インターベンション放射線科", "Interventional Radiology"],
+            "核医学科": ["核医学科", "Nuclear Medicine"], "预防科": ["予防科", "Preventive Medicine"], "风湿免疫科": ["リウマチ・膠原病科", "Rheumatology"],
+            "肾内科": ["腎臓内科", "Nephrology"], "肾病学科": ["腎臓内科", "Nephrology"], "传染科": ["感染症科", "Infectious Disease"], "感染病科": ["感染症科", "Infectious Disease"], "感染科": ["感染症科", "Infectious Disease"],
+            "生殖健康与不孕症科": ["生殖医療・不妊治療科", "Reproductive Medicine"], "生殖健康与不孕症专业": ["生殖医療・不妊治療科", "Reproductive Medicine"],
+            "运动医学科": ["スポーツ医学", "Sports Medicine"], "康复科": ["リハビリテーション科", "Rehabilitation"], "肝胆外科": ["肝胆膵外科", "Hepatobiliary Surgery"],
+            "病理科": ["病理診断科", "Pathology"], "重症医学科": ["集中治療科", "Critical Care"],
+          },
+          dosage: {
+            "片剂": ["錠剤", "Tablets"], "注射剂": ["注射剤", "Injection"], "舌下喷雾剂": ["舌下スプレー", "Sublingual Spray"],
+            "胶囊剂": ["カプセル剤", "Capsules"], "胶囊": ["カプセル", "Capsules"], "注射液": ["注射液", "Injection Solution"],
+            "植入剂": ["インプラント剤", "Implant"], "滴眼液": ["点眼液", "Eye Drops"], "溶液型滴眼剂": ["溶液型点眼液", "Eye Drops (Solution)"], "眼用制剂": ["眼科用製剤", "Ophthalmic Preparation"],
+            "气雾剂": ["エアゾール剤", "Aerosol"], "乳膏剂": ["クリーム", "Cream"], "乳膏": ["クリーム", "Cream"], "软膏剂": ["軟膏", "Ointment"],
+            "口服溶液剂": ["経口溶液", "Oral Solution"], "口服粉剂": ["経口粉末剤", "Oral Powder"], "口服微丸": ["経口マイクロペレット", "Oral Pellets"],
+            "注射剂溶液": ["注射溶液", "Injection Solution"], "栓剂": ["坐剤", "Suppository"], "鼻喷雾剂": ["点鼻スプレー", "Nasal Spray"],
+            "玻璃体内注射剂": ["硝子体内注射剤", "Intravitreal Injection"], "肌内注射剂": ["筋肉注射剤", "Intramuscular Injection"],
+            "薄膜包衣片（片剂）": ["フィルムコーティング錠", "Film-coated Tablets"], "灌注液": ["灌流液", "Irrigation Solution"], "混悬液": ["懸濁液", "Suspension"],
+            "吸入用混悬液": ["吸入懸濁液", "Inhalation Suspension"], "吸入粉雾剂": ["吸入粉末剤", "Powder for Inhalation"],
+            "冻干粉（静脉输注剂）": ["凍結乾燥粉末（静注用）", "Lyophilized Powder (IV)"], "用于配制皮下注射溶液的冻干粉": ["皮下注射用凍結乾燥粉末", "Lyophilized Powder for SC Injection"],
+            "制备肌肉注射和皮下注射溶液的冻干粉": ["筋注・皮下注用凍結乾燥粉末", "Lyophilized Powder for IM/SC Injection"],
+            "静脉注射用冻干粉": ["静注用凍結乾燥粉末", "Lyophilized Powder for IV"], "注射用冻干粉": ["注射用凍結乾燥粉末", "Lyophilized Powder for Injection"],
+            "注射用粉针剂": ["注射用粉末", "Powder for Injection"], "注射剂(冻干粉针剂)": ["注射剤（凍結乾燥粉末）", "Injection (Lyophilized)"],
+            "输注用浓缩粉剂": ["輸注用濃縮粉末", "Concentrated Powder for Infusion"], "注射用浓缩溶液": ["注射用濃縮溶液", "Concentrated Solution for Injection"], "注射用浓溶液": ["注射用濃厚溶液", "Concentrated Solution for Injection"],
+            "注射液（预填充注射笔）": ["注射液（プレフィルドペン）", "Injection (Prefilled Pen)"], "预充式注射笔（PFP）": ["プレフィルドペン", "Prefilled Pen"], "注射剂（输液袋）": ["注射剤（輸液バッグ）", "Injection (Infusion Bag)"],
+          },
+          region: {
+            "欧盟": ["EU", "EU"], "美国": ["米国", "USA"], "日本": ["日本", "Japan"], "匈牙利": ["ハンガリー", "Hungary"],
+            "德国": ["ドイツ", "Germany"], "英国": ["英国", "UK"], "韩国": ["韓国", "South Korea"], "法国": ["フランス", "France"],
+            "加拿大": ["カナダ", "Canada"], "意大利": ["イタリア", "Italy"], "澳大利亚": ["オーストラリア", "Australia"], "奥地利": ["オーストリア", "Austria"],
+            "瑞士": ["スイス", "Switzerland"], "俄罗斯": ["ロシア", "Russia"], "以色列": ["イスラエル", "Israel"], "丹麦": ["デンマーク", "Denmark"],
+            "爱尔兰": ["アイルランド", "Ireland"], "古巴": ["キューバ", "Cuba"], "瑞典": ["スウェーデン", "Sweden"],
+          },
+        };
+        function infoVal(key, v, lang) {
+          if (lang === "zh" || !v) return v;
+          const idx = lang === "ja" ? 0 : 1;
+          const map = key === "department" ? INFO_DIC.dept : key === "dosageForm" ? INFO_DIC.dosage : key === "approvalRegion" ? INFO_DIC.region : null;
+          if (map) {
+            if (map[v]) return map[v][idx];
+            const parts = v.split(/[、和]/).map((p) => p.trim()).filter(Boolean);
+            if (parts.length > 1 && parts.every((p) => map[p])) {
+              return parts.map((p) => map[p][idx]).join(lang === "ja" ? "・" : " & ");
+            }
+            return v;
+          }
+          if (key === "domesticListed") {
+            if (/是|已上市/.test(v)) return lang === "ja" ? "上市済み" : "Listed";
+            if (/否|未上市/.test(v)) return lang === "ja" ? "未上市" : "Not Listed";
+            return v;
+          }
+          if (key === "approvalDate" || key === "landingDate" || key === "domesticDate") {
+            const m = v.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+            if (m && lang === "en") {
+              const mm = String(m[2]).padStart(2, "0"), dd = String(m[3]).padStart(2, "0");
+              return m[1] + "-" + mm + "-" + dd;
+            }
+            return v;
+          }
+          return v;
+        }
         function render() {
           const rows = filtered();
           countEl.textContent = `${rows.length} ${text("results")}`;
@@ -16994,7 +17068,7 @@
                   .filter(([k]) => il[k])
                   .map(
                     ([k, v]) =>
-                      `<div class="product-info-row"><span class="product-info-label">${esc(il[k])}</span><span>${esc(v)}</span></div>`,
+                      `<div class="product-info-row"><span class="product-info-label">${esc(il[k])}</span><span>${esc(infoVal(k, v, productLang))}</span></div>`,
                   )
                   .join("")
               : "";
