@@ -631,6 +631,27 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
       }
+        .product-info .product-info-row {
+          display: flex;
+          gap: 8px;
+          font-size: 13px;
+          line-height: 1.5;
+          padding: 2px 0;
+        }
+        .product-info .product-info-label {
+          color: var(--brand, #244389);
+          font-weight: 600;
+          flex: 0 0 auto;
+          min-width: 9em;
+        }
+        .product-info {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+        .product-card.expanded .product-info {
+          max-height: 420px;
+        }
       .product-card {
         border: 1px solid var(--line);
         border-radius: 20px;
@@ -665,6 +686,10 @@
       .badge.food {
         background: #edf7f0;
         color: #417154;
+      }
+      .badge.new {
+        background: #fef3c7;
+        color: #9a4d00;
       }
       .product-card h3 {
         font-size: 20px;
@@ -1145,9 +1170,38 @@
     <script>
       window.ANTSU_PRODUCTS = [
         {
+          id: 610,
+          category: "drug",
+          number: 207,
+          isNew: true,
+          info: { department: "肿瘤内科", dosageForm: "片剂", spec: "20mg/片:100盒 50mg/片:100盒", approvalRegion: "加拿大", landingDate: "2026年8月26日" },
+
+          langs: {
+            zh: {
+              title: "达沙替尼片",
+              description:
+                "新诊断的费城染色体阳性（Ph+）慢性期慢性髓性白血病（CML）成人患者；对既往治疗（包括伊马替尼）耐药或不耐受的慢性期、加速期、髓系或淋系急变期Ph+CML成人患者；对既往治疗耐药或不耐受的费城染色体阳性急性淋巴细胞白血病（Ph+ALL）成人患者；1岁及以上Ph+慢性期CML儿科患者；1岁及以上新诊断的Ph+ALL儿科患者（联合化疗）。",
+              specialty: "血液内科",
+            },
+            ja: {
+              title: "ダサチニブ錠（PHYRAGO）",
+              description:
+                "新たに診断されたフィラデルフィア染色体陽性（Ph+）慢性期慢性骨髄性白血病（CML）の成人患者。既往治療（イマチニブを含む）に耐性または不耐容の慢性期・加速期・髄系または淋系急性転化期Ph+CML成人患者。既往治療に耐性または不耐容のPh+急性リンパ性白血病（Ph+ALL）成人患者。1歳以上のPh+慢性期CML小児患者。1歳以上の新規診断Ph+ALL小児患者（化学療法との併用）。",
+              specialty: "血液内科",
+            },
+            en: {
+              title: "Dasatinib Tablets (PHYRAGO)",
+              description:
+                "Adults with newly diagnosed Philadelphia chromosome-positive (Ph+) chronic-phase chronic myeloid leukemia (CML); adults with chronic-, accelerated-, or myeloid/lymphoid-blast-phase Ph+ CML resistant or intolerant to prior therapy including imatinib; adults with Ph+ acute lymphoblastic leukemia (Ph+ ALL) resistant or intolerant to prior therapy; pediatric patients aged 1 year and older with Ph+ chronic-phase CML; pediatric patients aged 1 year and older with newly diagnosed Ph+ ALL (in combination with chemotherapy).",
+              specialty: "Hematology",
+            },
+          },
+        },
+        {
           id: 1,
           category: "drug",
           number: 1,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "300mg/15ml", approvalRegion: "美国", landingDate: "2022年12月29日" },
           langs: {
             zh: {
               title: "IMJUDO",
@@ -1198,6 +1252,7 @@
           id: 3,
           category: "drug",
           number: 3,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "1200mg/20ml（60mg/ml）", approvalRegion: "美国", approvalDate: "2019-12-09", domesticListed: "是", domesticDate: "2020/2/11" },
           langs: {
             zh: {
               title: "阿替珠单抗",
@@ -1223,6 +1278,7 @@
           id: 4,
           category: "drug",
           number: 4,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "50mg（10ml）/瓶、200mg（40ml）/瓶", approvalRegion: "美国", approvalDate: "2020-04-30", domesticListed: "是", domesticDate: "2021-06-08" },
           langs: {
             zh: {
               title: "伊匹单抗",
@@ -1270,6 +1326,7 @@
           id: 6,
           category: "drug",
           number: 6,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "140mg/瓶、30mg/瓶", approvalRegion: "瑞士", approvalDate: "2020-07-16", domesticListed: "是", domesticDate: "2023-01-10" },
           langs: {
             zh: {
               title: "泊洛妥珠单抗",
@@ -1341,6 +1398,7 @@
           id: 9,
           category: "drug",
           number: 9,
+          info: { department: "肿瘤科", dosageForm: "胶囊剂", spec: "100mg", approvalRegion: "美国", landingDate: "2020-09-27", domesticListed: "是", domesticDate: "2021/3/23" },
           langs: {
             zh: {
               title: "普拉替尼",
@@ -1366,6 +1424,7 @@
           id: 10,
           category: "drug",
           number: 10,
+          info: { department: "肿瘤科", dosageForm: "胶囊剂", spec: "10mg、25mg", approvalRegion: "美国", landingDate: "2020-09-30", domesticListed: "是", domesticDate: "2023-04-28" },
           langs: {
             zh: {
               title: "司美替尼",
@@ -1388,6 +1447,7 @@
           id: 11,
           category: "drug",
           number: 11,
+          info: { department: "肿瘤科", dosageForm: "胶囊剂", spec: "75mg", approvalRegion: "欧盟", approvalDate: "2021-01-21" },
           langs: {
             zh: {
               title: "恩考芬尼",
@@ -1413,6 +1473,7 @@
           id: 12,
           category: "drug",
           number: 12,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "20 mg", approvalRegion: "美国", approvalDate: "2021-03-25", domesticListed: "是", domesticDate: "2021-12-14" },
           langs: {
             zh: {
               title: "XPOVIO塞利尼索",
@@ -1436,6 +1497,7 @@
           id: 13,
           category: "drug",
           number: 13,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "300mg", approvalRegion: "美国", landingDate: "2021-07-02" },
           langs: {
             zh: {
               title: "阿博利布",
@@ -1461,6 +1523,7 @@
           id: 14,
           category: "drug",
           number: 14,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "30mg、90mg、180mg、", approvalRegion: "日本", approvalDate: "2021-07-09", domesticListed: "是", domesticDate: "2022-03-22" },
           langs: {
             zh: {
               title: "布格替尼",
@@ -1511,6 +1574,7 @@
           id: 16,
           category: "drug",
           number: 16,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "120mg/片", approvalRegion: "美国", landingDate: "2021-08-12" },
           langs: {
             zh: {
               title: "索托拉西布",
@@ -1536,6 +1600,7 @@
           id: 17,
           category: "drug",
           number: 17,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "15mg", approvalRegion: "欧盟", landingDate: "2021-11-05" },
           langs: {
             zh: {
               title: "比美替尼/贝美替尼",
@@ -1561,6 +1626,7 @@
           id: 18,
           category: "drug",
           number: 18,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "20mg", approvalRegion: "美国", landingDate: "2021-11-26", domesticListed: "是", domesticDate: "2024年8月13日" },
           langs: {
             zh: {
               title: "PADCEV",
@@ -1586,6 +1652,7 @@
           id: 19,
           category: "drug",
           number: 19,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "100mg", approvalRegion: "日本", landingDate: "2021-11-26", domesticListed: "是", domesticDate: "2023年3月24日" },
           langs: {
             zh: {
               title: "ENHERTU",
@@ -1636,6 +1703,7 @@
           id: 21,
           category: "drug",
           number: 21,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "225mg", approvalRegion: "美国", approvalDate: "2021-12-09", domesticListed: "是", domesticDate: "2023-12-05" },
           langs: {
             zh: {
               title: "特泊替尼",
@@ -1711,6 +1779,7 @@
           id: 24,
           category: "drug",
           number: 24,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "200mg", approvalRegion: "美国", landingDate: "2021-12-27", domesticListed: "是", domesticDate: "2024-6-11" },
           langs: {
             zh: {
               title: "卡马替尼",
@@ -1736,6 +1805,7 @@
           id: 25,
           category: "drug",
           number: 25,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "1 mg / mL", approvalRegion: "欧盟", landingDate: "2022-02-22" },
           langs: {
             zh: {
               title: "Foscan",
@@ -1786,6 +1856,7 @@
           id: 27,
           category: "drug",
           number: 27,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "200mg/片", approvalRegion: "美国", landingDate: "2022-05-24", domesticListed: "是" },
           langs: {
             zh: {
               title: "他泽司他",
@@ -1809,6 +1880,7 @@
           id: 28,
           category: "drug",
           number: 28,
+          info: { department: "肿瘤科", dosageForm: "冻干粉（静脉输注剂）", spec: "4mg", approvalRegion: "美国", landingDate: "2022-06-30", domesticListed: "是", domesticDate: "2024年12月1日" },
           langs: {
             zh: {
               title: "芦比替定",
@@ -1834,6 +1906,7 @@
           id: 29,
           category: "drug",
           number: 29,
+          info: { department: "肿瘤科", dosageForm: "胶囊剂", spec: "40mg/粒", approvalRegion: "欧盟", approvalDate: "2022-07-15", domesticListed: "是", domesticDate: "2022-09-30" },
           langs: {
             zh: {
               title: "Retsevmo",
@@ -1859,6 +1932,7 @@
           id: 30,
           category: "drug",
           number: 30,
+          info: { department: "消化科", dosageForm: "片剂", spec: "0.2mg/片", approvalRegion: "美国、欧盟、日本", landingDate: "2022-08-19" },
           langs: {
             zh: {
               title: "纳地美定片",
@@ -1881,6 +1955,7 @@
           id: 31,
           category: "drug",
           number: 31,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "40mg/片", approvalRegion: "日本", landingDate: "2023年06月01日" },
           langs: {
             zh: {
               title: "Pimitespib(Jeselhy)",
@@ -2029,6 +2104,7 @@
           id: 37,
           category: "drug",
           number: 37,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "100mg/4ml", approvalRegion: "美国", approvalDate: "2018-04-03", domesticListed: "是", domesticDate: "2018/7/20" },
           langs: {
             zh: {
               title: "Pembrolizumab（帕博利珠单抗注射液）",
@@ -2230,6 +2306,7 @@
           id: 45,
           category: "drug",
           number: 45,
+          info: { department: "肿瘤科", dosageForm: "胶囊剂", spec: "20mg/粒、25mg/粒", approvalRegion: "日本", approvalDate: "2022-11-07", domesticListed: "是", domesticDate: "2023.8.24" },
           langs: {
             zh: {
               title: "TS-1复方胶囊（替吉奥胶囊）",
@@ -2254,6 +2331,7 @@
           id: 46,
           category: "drug",
           number: 46,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "100mg/瓶", approvalRegion: "美国", landingDate: "2023年02月15日", domesticListed: "是", domesticDate: "2023年03月24日" },
           langs: {
             zh: {
               title: "优赫得（注射用德曲妥珠单抗）",
@@ -2279,6 +2357,7 @@
           id: 47,
           category: "drug",
           number: 47,
+          info: { department: "肿瘤科", dosageForm: "片剂", spec: "15mg/片、20mg/片", approvalRegion: "日本", landingDate: "2022-11-28", domesticListed: "是", domesticDate: "2024年8月6日" },
           langs: {
             zh: {
               title: "朗斯弗®（曲氟尿苷替匹嘧啶片）",
@@ -2302,6 +2381,7 @@
           id: 48,
           category: "drug",
           number: 48,
+          info: { department: "肿瘤内科", dosageForm: "用于配制皮下注射溶液的冻干粉", spec: "100000IU/瓶", approvalRegion: "俄罗斯", landingDate: "2026年03月31日" },
           langs: {
             zh: {
               title: "重组肿瘤坏死因子-胸腺素α1",
@@ -2327,6 +2407,7 @@
           id: 49,
           category: "drug",
           number: 49,
+          info: { department: "肿瘤内科", dosageForm: "制备肌肉注射和皮下注射溶液的冻干粉", spec: "500000ME/瓶", approvalRegion: "俄罗斯", landingDate: "2026年3月31日" },
           langs: {
             zh: {
               title: "重组人干扰素γ",
@@ -2398,6 +2479,7 @@
           id: 52,
           category: "drug",
           number: 52,
+          info: { department: "眼科", dosageForm: "注射剂", spec: "120 mg / mL", approvalRegion: "美国", approvalDate: "2021-03-25" },
           langs: {
             zh: {
               title: "倍优适",
@@ -2420,6 +2502,7 @@
           id: 53,
           category: "drug",
           number: 53,
+          info: { department: "眼科", dosageForm: "植入剂", spec: "0.005 mL", approvalRegion: "美国", approvalDate: "2021-06-25" },
           langs: {
             zh: {
               title: "地塞米松植入剂",
@@ -2445,6 +2528,7 @@
           id: 54,
           category: "drug",
           number: 54,
+          info: { department: "眼科", spec: "5ml", approvalRegion: "意大利", approvalDate: "2021-07-27" },
           langs: {
             zh: {
               title: "左氧氟沙星地塞米松滴眼液",
@@ -2470,6 +2554,7 @@
           id: 55,
           category: "drug",
           number: 55,
+          info: { department: "眼科", dosageForm: "植入剂", spec: "0.4mg", approvalRegion: "美国", landingDate: "2021-08-19" },
           langs: {
             zh: {
               title: "地塞米松眼用植入剂",
@@ -2493,6 +2578,7 @@
           id: 56,
           category: "drug",
           number: 56,
+          info: { department: "眼科", dosageForm: "眼用制剂", spec: "0.19mg", approvalRegion: "美国", landingDate: "2022-05-24" },
           langs: {
             zh: {
               title: "氟轻松玻璃体内植入剂0.19mg",
@@ -2518,6 +2604,7 @@
           id: 57,
           category: "drug",
           number: 57,
+          info: { department: "眼科", dosageForm: "注射剂", spec: "15mg/瓶", approvalRegion: "美国、欧盟、日本", approvalDate: "2022-08-19" },
           langs: {
             zh: {
               title: "注射用维替泊芬",
@@ -2543,6 +2630,7 @@
           id: 58,
           category: "drug",
           number: 58,
+          info: { department: "眼科", dosageForm: "注射剂", spec: "40mg/ml; 0.9ml/瓶", approvalRegion: "美国", approvalDate: "2022-09-05" },
           langs: {
             zh: {
               title: "曲安奈德脉络膜上腔注射混悬液",
@@ -2566,6 +2654,7 @@
           id: 59,
           category: "drug",
           number: 59,
+          info: { department: "眼科", dosageForm: "鼻喷雾剂", spec: "0.03mg/50uL, 4.2ml/支", approvalRegion: "美国", landingDate: "2023年03月23日", domesticListed: "是" },
           langs: {
             zh: {
               title: "伐尼克兰溶液鼻喷雾剂",
@@ -2589,6 +2678,7 @@
           id: 60,
           category: "drug",
           number: 60,
+          info: { department: "眼科", dosageForm: "玻璃体内注射剂", spec: "6mg/0.05ml/瓶", approvalRegion: "英国", landingDate: "2023年08月18日", domesticListed: "是", domesticDate: "2023年12月13日" },
           langs: {
             zh: {
               title: "法瑞西单抗",
@@ -2614,6 +2704,7 @@
           id: 61,
           category: "drug",
           number: 61,
+          info: { department: "眼科", dosageForm: "溶液型滴眼剂", spec: "0.3ml/支，30支/盒", landingDate: "2025年8月25日" },
           langs: {
             zh: {
               title: "硫酸阿托品滴眼液",
@@ -2636,6 +2727,7 @@
           id: 62,
           category: "drug",
           number: 62,
+          info: { department: "眼科", dosageForm: "滴眼液", spec: "5ml/盒", landingDate: "2025年08月25日" },
           langs: {
             zh: {
               title: "盐酸半胱胺",
@@ -2661,6 +2753,7 @@
           id: 63,
           category: "drug",
           number: 63,
+          info: { department: "眼科", dosageForm: "片剂", spec: "150mg/片", approvalRegion: "欧盟", landingDate: "2025 年 12月 09日" },
           langs: {
             zh: {
               title: "艾地苯醌",
@@ -2686,6 +2779,7 @@
           id: 64,
           category: "drug",
           number: 64,
+          info: { department: "眼科", dosageForm: "滴眼液", spec: "0.16m1/支/30支/盒", approvalRegion: "美国", landingDate: "2026年6月26日" },
           langs: {
             zh: {
               title: "卡巴胆碱与酒石酸溴莫尼定滴眼液",
@@ -2708,6 +2802,7 @@
           id: 65,
           category: "drug",
           number: 65,
+          info: { department: "眼科", dosageForm: "乳膏", spec: "0. 5% ，2g/支", approvalRegion: "日本", landingDate: "2026年03月31日" },
           langs: {
             zh: {
               title: "盐酸依匹斯汀乳膏",
@@ -2756,6 +2851,7 @@
           id: 67,
           category: "drug",
           number: 67,
+          info: { department: "消化内科", dosageForm: "注射剂", spec: "50支/盒", approvalRegion: "韩国", approvalDate: "2024-09-13", landingDate: "2024年9月12日" },
           langs: {
             zh: {
               title: "莱乃康",
@@ -2828,6 +2924,7 @@
           id: 70,
           category: "drug",
           number: 70,
+          info: { department: "神经外科", dosageForm: "注射剂", spec: "0.05mg/1ml/支", approvalRegion: "瑞士", landingDate: "2024年12月9日" },
           langs: {
             zh: {
               title: "巴氯芬鞘内注射液",
@@ -2853,6 +2950,7 @@
           id: 71,
           category: "drug",
           number: 71,
+          info: { department: "神经内科", dosageForm: "片剂", spec: "4.5 mg、18 mg", approvalRegion: "欧盟", landingDate: "2021-04-12", domesticListed: "是", domesticDate: "2023-06-30" },
           langs: {
             zh: {
               title: "替洛利生",
@@ -2876,6 +2974,7 @@
           id: 72,
           category: "drug",
           number: 72,
+          info: { department: "内科", dosageForm: "注射剂", spec: "400mg/20ml", approvalRegion: "德国", landingDate: "2022-05-30", domesticListed: "是", domesticDate: "2023年6月30日" },
           langs: {
             zh: {
               title: "艾加莫德α注射液",
@@ -2901,6 +3000,7 @@
           id: 73,
           category: "drug",
           number: 73,
+          info: { department: "神经内科", dosageForm: "注射剂", spec: "100 mg / mL", approvalRegion: "美国", landingDate: "2022-09-05" },
           langs: {
             zh: {
               title: "艾普奈珠单抗（维安替）",
@@ -2924,6 +3024,7 @@
           id: 74,
           category: "drug",
           number: 74,
+          info: { department: "神经内科", dosageForm: "注射剂", spec: "170mg/1.7mL", approvalRegion: "美国", approvalDate: "2022-11-07" },
           langs: {
             zh: {
               title: "阿杜卡单抗 ADUHELM (aducanumab-avwa) injection",
@@ -2949,6 +3050,7 @@
           id: 75,
           category: "drug",
           number: 75,
+          info: { department: "神经内科", dosageForm: "片剂", spec: "75mg/片", approvalRegion: "美国", landingDate: "2023年01月09日", domesticListed: "是", domesticDate: "2024年01月23日" },
           langs: {
             zh: {
               title: "瑞美吉泮",
@@ -2974,6 +3076,7 @@
           id: 76,
           category: "drug",
           number: 76,
+          info: { department: "神经内科", dosageForm: "片剂", spec: "5mg/片", approvalRegion: "日本", landingDate: "2023年08月02日" },
           langs: {
             zh: {
               title: "他替瑞林",
@@ -3021,6 +3124,7 @@
           id: 78,
           category: "drug",
           number: 78,
+          info: { department: "神经内科", dosageForm: "注射剂", spec: "100mg/15mL", approvalRegion: "美国", landingDate: "2023-10-25", domesticDate: "2024年9月26日" },
           langs: {
             zh: {
               title: "托夫生注射液 QALSODY",
@@ -3096,6 +3200,7 @@
           id: 81,
           category: "drug",
           number: 81,
+          info: { department: "神经内科", dosageForm: "片剂", spec: "20片/盒", approvalDate: "2024-03-5" },
           langs: {
             zh: {
               title: "甲磺酸普立地诺3mg片剂",
@@ -3196,6 +3301,7 @@
           id: 85,
           category: "drug",
           number: 85,
+          info: { department: "医美", spec: "2.275mg/ml", approvalRegion: "欧盟", approvalDate: "2021-07-27", domesticListed: "是", domesticDate: "2025年6月24日" },
           langs: {
             zh: {
               title: "CARETOPIC 非那雄胺喷雾剂",
@@ -3221,6 +3327,7 @@
           id: 86,
           category: "drug",
           number: 86,
+          info: { department: "医美", dosageForm: "气雾剂", spec: "30g", approvalRegion: "美国", approvalDate: "2021-07-27" },
           langs: {
             zh: {
               title: "ZILXI 米诺环素局部用泡沫剂 1.5%",
@@ -3244,6 +3351,7 @@
           id: 87,
           category: "drug",
           number: 87,
+          info: { department: "医美", dosageForm: "气雾剂", spec: "30g", approvalRegion: "美国", approvalDate: "2021-07-27", domesticListed: "是" },
           langs: {
             zh: {
               title: "AMZEEQ 米诺环素局部用泡沫剂（4%）",
@@ -3269,6 +3377,7 @@
           id: 88,
           category: "drug",
           number: 88,
+          info: { department: "内科", dosageForm: "植入剂", spec: "16mg", approvalRegion: "欧盟", approvalDate: "2021-11-26" },
           langs: {
             zh: {
               title: "阿法诺肽",
@@ -3294,6 +3403,7 @@
           id: 89,
           category: "drug",
           number: 89,
+          info: { department: "皮肤科", dosageForm: "乳膏剂", spec: "100g/支", approvalRegion: "欧盟", landingDate: "2023年08月14日" },
           langs: {
             zh: {
               title: "磷酸芦可替尼乳膏",
@@ -3319,6 +3429,7 @@
           id: 90,
           category: "drug",
           number: 90,
+          info: { department: "皮肤科", dosageForm: "软膏剂", spec: "15g", approvalRegion: "德国", landingDate: "2024-02-18" },
           langs: {
             zh: {
               title: "赛儿茶素软膏",
@@ -3369,6 +3480,7 @@
           id: 92,
           category: "drug",
           number: 92,
+          info: { department: "皮肤科", dosageForm: "乳膏剂", spec: "50g/支/盒", approvalRegion: "德国", landingDate: "2026年6月26日" },
           langs: {
             zh: {
               title: "格隆溴铵",
@@ -3414,6 +3526,7 @@
           id: 94,
           category: "drug",
           number: 94,
+          info: { department: "内科", dosageForm: "片剂", spec: "40mg、20mg", approvalRegion: "美国", approvalDate: "2019-12-25", domesticListed: "是", domesticDate: "2021/4/27" },
           langs: {
             zh: {
               title: "玛巴洛沙韦",
@@ -3439,6 +3552,7 @@
           id: 95,
           category: "drug",
           number: 95,
+          info: { department: "内分泌、神经外科", dosageForm: "片剂", spec: "1mg、5mg、10mg", approvalRegion: "美国", landingDate: "2021-03-16", domesticListed: "是", domesticDate: "2024年9月19日" },
           langs: {
             zh: {
               title: "奥西卓司他",
@@ -3464,6 +3578,7 @@
           id: 96,
           category: "drug",
           number: 96,
+          info: { department: "内科", spec: "2ml", approvalRegion: "日本", landingDate: "2022-04-27" },
           langs: {
             zh: {
               title: "美思满人胎素",
@@ -3561,6 +3676,7 @@
           id: 100,
           category: "drug",
           number: 100,
+          info: { department: "内分泌", dosageForm: "注射液", spec: "2 mg/2 mL（1 mg/mL）/支", approvalRegion: "美国", approvalDate: "2024-6-29", domesticListed: "是" },
           langs: {
             zh: {
               title: "替利珠单抗",
@@ -3586,6 +3702,7 @@
           id: 101,
           category: "drug",
           number: 101,
+          info: { department: "妇科", dosageForm: "片剂", spec: "150mg", approvalRegion: "美国", approvalDate: "2021-06-25" },
           langs: {
             zh: {
               title: "邦维力TM伊班膦酸钠薄膜片",
@@ -3609,6 +3726,7 @@
           id: 102,
           category: "drug",
           number: 102,
+          info: { department: "内科", dosageForm: "注射剂", spec: "20mg", approvalRegion: "美国", landingDate: "2022-04-13", domesticListed: "是", domesticDate: "2025年05月27日" },
           langs: {
             zh: {
               title: "帕瑞肽",
@@ -3634,6 +3752,7 @@
           id: 103,
           category: "drug",
           number: 103,
+          info: { department: "内分泌科", dosageForm: "注射剂", spec: "500mg", approvalRegion: "美国", landingDate: "2022-04-13" },
           langs: {
             zh: {
               title: "TEPEZZA",
@@ -3656,6 +3775,7 @@
           id: 104,
           category: "drug",
           number: 104,
+          info: { department: "内科", dosageForm: "片剂", spec: "500mg/片", approvalRegion: "欧盟", landingDate: "2023年02月06日", domesticListed: "是", domesticDate: "2023年9月05日" },
           langs: {
             zh: {
               title: "米托坦",
@@ -3681,6 +3801,7 @@
           id: 105,
           category: "drug",
           number: 105,
+          info: { department: "内分泌科", dosageForm: "肌内注射剂", spec: "60mg", approvalRegion: "欧盟", landingDate: "2023年08月13日", domesticListed: "是", domesticDate: "2025年4月22日" },
           langs: {
             zh: {
               title: "长效帕瑞肽",
@@ -3781,6 +3902,7 @@
           id: 109,
           category: "drug",
           number: 109,
+          info: { department: "泌尿外科", dosageForm: "注射液", spec: "94.5 mg/0.5 ml/瓶", approvalRegion: "美国", approvalDate: "2024-7-4" },
           langs: {
             zh: {
               title: "鲁玛司兰",
@@ -3806,6 +3928,7 @@
           id: 110,
           category: "drug",
           number: 110,
+          info: { department: "泌尿外科", dosageForm: "薄膜包衣片（片剂）", spec: "40 mg/片", approvalRegion: "英国", landingDate: "2024年11月19日", domesticDate: "2024年11月15日" },
           langs: {
             zh: {
               title: "贝组替凡片",
@@ -3831,6 +3954,7 @@
           id: 111,
           category: "drug",
           number: 111,
+          info: { department: "肿瘤科", dosageForm: "灌注液", spec: "85mg", approvalRegion: "德国", approvalDate: "2021-08-06", domesticDate: "2024-10-29" },
           langs: {
             zh: {
               title: "海克威膀胱灌注液",
@@ -3854,6 +3978,7 @@
           id: 112,
           category: "drug",
           number: 112,
+          info: { department: "泌尿外科", dosageForm: "注射液", spec: "0.9 mg", approvalRegion: "美国", landingDate: "2023年09月25" },
           langs: {
             zh: {
               title: "溶组织梭菌胶原酶",
@@ -3879,6 +4004,7 @@
           id: 113,
           category: "drug",
           number: 113,
+          info: { department: "泌尿外科", dosageForm: "混悬液", spec: "4瓶/盒", approvalRegion: "美国", landingDate: "2024年9月30日" },
           langs: {
             zh: {
               title: "重组人α2b-干扰素腺病毒混悬液",
@@ -3904,6 +4030,7 @@
           id: 114,
           category: "drug",
           number: 114,
+          info: { department: "麻醉科", dosageForm: "片剂", spec: "100片/盒", approvalRegion: "日本", domesticListed: "是", domesticDate: "2024年6月28日" },
           langs: {
             zh: {
               title: "苯磺酸美洛加巴林片",
@@ -3926,6 +4053,7 @@
           id: 115,
           category: "drug",
           number: 115,
+          info: { department: "呼吸科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年09月03日" },
           langs: {
             zh: {
               title: "ORALTEK（Ambrosia artemisiifolia/Artemisia vulgaris）",
@@ -3952,6 +4080,7 @@
           id: 116,
           category: "drug",
           number: 116,
+          info: { department: "呼吸科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年09月03日" },
           langs: {
             zh: {
               title: "ORALTEK（Alternaria alternata）",
@@ -3978,6 +4107,7 @@
           id: 117,
           category: "drug",
           number: 117,
+          info: { department: "呼吸科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年09月03日" },
           langs: {
             zh: {
               title: "ORALTEK（Artemisia vulgaris）",
@@ -4004,6 +4134,7 @@
           id: 118,
           category: "drug",
           number: 118,
+          info: { department: "呼吸科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年09月03日" },
           langs: {
             zh: {
               title: "ORALTEK（Canis familiaris）",
@@ -4030,6 +4161,7 @@
           id: 119,
           category: "drug",
           number: 119,
+          info: { department: "呼吸科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年09月03日" },
           langs: {
             zh: {
               title: "ORALTEK（Ambrosia artemisiifolia）",
@@ -4056,6 +4188,7 @@
           id: 120,
           category: "drug",
           number: 120,
+          info: { department: "呼吸科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年09月03日" },
           langs: {
             zh: {
               title: "ORALTEK（Felis domesticus）",
@@ -4082,6 +4215,7 @@
           id: 121,
           category: "drug",
           number: 121,
+          info: { department: "呼吸科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年09月03日" },
           langs: {
             zh: {
               title: "ORALTEK（Equus caballus）",
@@ -4108,6 +4242,7 @@
           id: 122,
           category: "drug",
           number: 122,
+          info: { department: "耳鼻喉科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年08月08日" },
           langs: {
             zh: {
               title: "Oraltek Gräser Sublingualspray Lösung",
@@ -4134,6 +4269,7 @@
           id: 123,
           category: "drug",
           number: 123,
+          info: { department: "耳鼻喉科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年08月08日" },
           langs: {
             zh: {
               title: "Oraltek Birke/Erle/Hasel Sublingualspray, Lösung",
@@ -4160,6 +4296,7 @@
           id: 124,
           category: "drug",
           number: 124,
+          info: { department: "耳鼻喉科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年08月08日" },
           langs: {
             zh: {
               title:
@@ -4189,6 +4326,7 @@
           id: 125,
           category: "drug",
           number: 125,
+          info: { department: "耳鼻喉科", dosageForm: "舌下喷雾剂", spec: "9mL/瓶", approvalRegion: "匈牙利", landingDate: "2023年08月08日" },
           langs: {
             zh: {
               title: "Oraltek D. pteronyssinus Sublingualspray, Lösung",
@@ -4215,6 +4353,7 @@
           id: 126,
           category: "drug",
           number: 126,
+          info: { department: "儿科、呼吸内科", dosageForm: "片剂", spec: "31片/盒", approvalRegion: "日本", landingDate: "2026年 3 月 10 日" },
           langs: {
             zh: {
               title: "尘螨变应原舌下片",
@@ -4267,6 +4406,7 @@
           id: 128,
           category: "drug",
           number: 128,
+          info: { department: "内科", dosageForm: "片剂", spec: "12SQ-Bet", approvalRegion: "丹麦", landingDate: "2023年06月01日" },
           langs: {
             zh: {
               title: "ITULAZAX",
@@ -4293,6 +4433,7 @@
           id: 129,
           category: "drug",
           number: 129,
+          info: { department: "预防科", dosageForm: "注射剂", spec: "每盒包含两瓶药物：150 mg + 150 m", approvalRegion: "欧盟", landingDate: "2022-06-21" },
           langs: {
             zh: {
               title: "（替沙格韦单抗和西加韦单抗）注射液",
@@ -4317,6 +4458,7 @@
           id: 130,
           category: "drug",
           number: 130,
+          info: { department: "呼吸科", dosageForm: "静脉注射用冻干粉", spec: "1g/瓶", approvalRegion: "欧盟", approvalDate: "2024-01-30" },
           langs: {
             zh: {
               title: "Cefiderocol",
@@ -4367,6 +4509,7 @@
           id: 132,
           category: "drug",
           number: 132,
+          info: { department: "呼吸内科", dosageForm: "吸入用混悬液", spec: "3mg/2.5ml/支，60支/盒", approvalRegion: "美国", landingDate: "2024年9月30日" },
           langs: {
             zh: {
               title: "恩塞芬汀",
@@ -4392,6 +4535,7 @@
           id: 133,
           category: "drug",
           number: 133,
+          info: { department: "呼吸内科", dosageForm: "吸入粉雾剂", spec: "40mg", landingDate: "2025年8月25日" },
           langs: {
             zh: {
               title: "甘露醇吸入粉雾剂",
@@ -4417,6 +4561,7 @@
           id: 134,
           category: "drug",
           number: 134,
+          info: { department: "肿瘤科", spec: "300mg", approvalRegion: "美国", landingDate: "2021-05-25", domesticListed: "是", domesticDate: "2022-07-12" },
           langs: {
             zh: {
               title: "曲拉西利",
@@ -4442,6 +4587,7 @@
           id: 135,
           category: "drug",
           number: 135,
+          info: { department: "呼吸内科", dosageForm: "注射剂", spec: "1mg/瓶", approvalRegion: "美国", landingDate: "2025 年 12月 22日" },
           langs: {
             zh: {
               title: "IMDELLTRA（tarlatamab-dlle）",
@@ -4467,6 +4613,7 @@
           id: 136,
           category: "drug",
           number: 136,
+          info: { department: "呼吸内科", dosageForm: "注射剂", spec: "100mg/瓶", approvalRegion: "日本", landingDate: "2026年 3 月 10 日" },
           langs: {
             zh: {
               title: "注射用他拉泊芬钠",
@@ -4492,6 +4639,7 @@
           id: 137,
           category: "drug",
           number: 137,
+          info: { department: "呼吸内科", dosageForm: "片剂", spec: "10mg/片", landingDate: "2026年 3 月 23日" },
           langs: {
             zh: {
               title: "塞伐艾替尼",
@@ -4542,6 +4690,7 @@
           id: 139,
           category: "drug",
           number: 139,
+          info: { department: "肿瘤科", dosageForm: "胶囊剂", spec: "125mg", approvalRegion: "美国", approvalDate: "2021-12-09" },
           langs: {
             zh: {
               title: "英菲格拉替尼",
@@ -4567,6 +4716,7 @@
           id: 140,
           category: "drug",
           number: 140,
+          info: { department: "妇科", dosageForm: "注射液", spec: "1.75mg/0.3mL/支", approvalRegion: "美国", landingDate: "2023年04月14日" },
           langs: {
             zh: {
               title: "唯乐思（布美兰肽注射液）",
@@ -4592,6 +4742,7 @@
           id: 141,
           category: "drug",
           number: 141,
+          info: { department: "妇产科", dosageForm: "注射剂", spec: "100mg/20ml（5mg/ml）", approvalRegion: "美国", landingDate: "2023年06月01日", domesticListed: "是", domesticDate: "2024年11月22日" },
           langs: {
             zh: {
               title: "ELAHERE™（mirvetuximab soravtansine-gynx）",
@@ -4617,6 +4768,7 @@
           id: 142,
           category: "drug",
           number: 142,
+          info: { department: "妇产科", dosageForm: "片剂", spec: "45mg/片", approvalRegion: "欧盟", landingDate: "2024-06-03" },
           langs: {
             zh: {
               title: "非唑奈坦片",
@@ -4642,6 +4794,7 @@
           id: 143,
           category: "drug",
           number: 143,
+          info: { department: "风湿免疫科", dosageForm: "注射液", spec: "100mg(0.67ml )/支", approvalRegion: "欧盟", landingDate: "2023年03月23日", domesticListed: "是", domesticDate: "2023年10月27日" },
           langs: {
             zh: {
               title: "安络定®",
@@ -4667,6 +4820,7 @@
           id: 144,
           category: "drug",
           number: 144,
+          info: { department: "儿科、内分泌科", dosageForm: "注射液（预填充注射笔）", spec: "15mg/1.5ml", approvalRegion: "欧盟", landingDate: "2025 年 1 月 24 日" },
           langs: {
             zh: {
               title: "帕西生长素注射液",
@@ -4692,6 +4846,7 @@
           id: 145,
           category: "drug",
           number: 145,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "20mg（4.5ml）/瓶", approvalRegion: "欧盟", approvalDate: "2020-10-28", domesticListed: "是", domesticDate: "2021/8/12" },
           langs: {
             zh: {
               title: "达妥昔单抗β注射液",
@@ -4717,6 +4872,7 @@
           id: 146,
           category: "drug",
           number: 146,
+          info: { department: "肾内科", dosageForm: "胶囊剂", spec: "150mg", approvalRegion: "欧盟", landingDate: "2021-07-02" },
           langs: {
             zh: {
               title: "半胱胺酒石酸胶囊",
@@ -4742,6 +4898,7 @@
           id: 147,
           category: "drug",
           number: 147,
+          info: { department: "内科", dosageForm: "注射剂", spec: "5 mg/5ml", approvalRegion: "欧盟", landingDate: "2021-08-06" },
           langs: {
             zh: {
               title: "那加硫酶注射液",
@@ -4764,6 +4921,7 @@
           id: 148,
           category: "drug",
           number: 148,
+          info: { department: "内科", dosageForm: "口服溶液剂", spec: "1.1g/mL", approvalRegion: "美国", landingDate: "2021-11-26", domesticListed: "是", domesticDate: "2023年7月10日" },
           langs: {
             zh: {
               title: "苯丁酸甘油酯口服液",
@@ -4789,6 +4947,7 @@
           id: 149,
           category: "drug",
           number: 149,
+          info: { department: "内科", dosageForm: "口服溶液剂", spec: "9.5mg/ml", approvalRegion: "美国", landingDate: "2022-02-22", domesticListed: "是", domesticDate: "2023年05月29日" },
           langs: {
             zh: {
               title: "马昔巴特口服液",
@@ -4837,6 +4996,7 @@
           id: 151,
           category: "drug",
           number: 151,
+          info: { department: "内科", dosageForm: "口服粉剂", spec: "180g", approvalRegion: "欧盟", landingDate: "2022-08-19" },
           langs: {
             zh: {
               title: "无水甜菜碱",
@@ -4862,6 +5022,7 @@
           id: 152,
           category: "drug",
           number: 152,
+          info: { department: "内科", dosageForm: "胶囊剂", spec: "0.5mg/粒 、1mg/粒、 2mg/粒、 5mg/粒", approvalRegion: "欧盟", approvalDate: "2022-09-15" },
           langs: {
             zh: {
               title: "氢化可的松可拆壳胶囊装颗粒",
@@ -4912,6 +5073,7 @@
           id: 154,
           category: "drug",
           number: 154,
+          info: { department: "内科", dosageForm: "片剂", spec: "0.1mg/片", approvalRegion: "英国", approvalDate: "2022-11-28", domesticListed: "是", domesticDate: "2024年5月21日" },
           langs: {
             zh: {
               title: "醋酸氟氢可的松",
@@ -4937,6 +5099,7 @@
           id: 155,
           category: "drug",
           number: 155,
+          info: { department: "儿科", dosageForm: "注射用粉针剂", spec: "5mg/瓶", approvalRegion: "英国", landingDate: "2023年03月23日", domesticListed: "是", domesticDate: "2024年02月20日" },
           langs: {
             zh: {
               title: "替度鲁肽",
@@ -4962,6 +5125,7 @@
           id: 156,
           category: "drug",
           number: 156,
+          info: { department: "儿科", dosageForm: "注射液", spec: "2.0×10的13次方vg/mL", approvalRegion: "美国、欧盟", landingDate: "2023年04月14日" },
           langs: {
             zh: {
               title: "OAV101注射液",
@@ -4987,6 +5151,7 @@
           id: 157,
           category: "drug",
           number: 157,
+          info: { department: "儿科", dosageForm: "胶囊", spec: "200mcg/粒", approvalRegion: "欧盟", landingDate: "2023年09月22日", domesticListed: "是", domesticDate: "2024年12月1日" },
           langs: {
             zh: {
               title: "Bylvay (Odevixibat)",
@@ -5062,6 +5227,7 @@
           id: 160,
           category: "drug",
           number: 160,
+          info: { department: "儿科", dosageForm: "注射液", spec: "250mg/5mL/瓶", approvalRegion: "美国", landingDate: "2024年01月30日" },
           langs: {
             zh: {
               title: "维托拉生",
@@ -5111,6 +5277,7 @@
           id: 162,
           category: "drug",
           number: 162,
+          info: { department: "内科", dosageForm: "片剂", spec: "100片/盒", approvalRegion: "美国", approvalDate: "2024-7-4" },
           langs: {
             zh: {
               title: "依氟鸟氨酸片",
@@ -5161,6 +5328,7 @@
           id: 164,
           category: "drug",
           number: 164,
+          info: { department: "儿科", dosageForm: "输注用浓缩粉剂", spec: "5瓶/盒", approvalRegion: "欧盟", landingDate: "2024年9月12日" },
           langs: {
             zh: {
               title: "奥立扑酶α",
@@ -5211,6 +5379,7 @@
           id: 166,
           category: "drug",
           number: 166,
+          info: { department: "儿科", dosageForm: "胶囊", spec: "50mg/粒/90粒/瓶 ；250mg/粒/90粒/瓶", approvalRegion: "法国", landingDate: "2026年6月18日" },
           langs: {
             zh: {
               title: "胆酸胶囊",
@@ -5235,6 +5404,7 @@
           id: 167,
           category: "drug",
           number: 167,
+          info: { department: "儿科", dosageForm: "注射用浓缩溶液", spec: "5ml（1mg/ml））/瓶/1 瓶/盒", approvalRegion: "欧盟", landingDate: "2025 年 6 月 15日" },
           langs: {
             zh: {
               title: "戈硫酯酶（那加硫酶）",
@@ -5260,6 +5430,7 @@
           id: 168,
           category: "drug",
           number: 168,
+          info: { department: "传染科", dosageForm: "口服微丸", spec: "28 袋/盒", approvalRegion: "美国、欧盟", landingDate: "2025年2月20日" },
           langs: {
             zh: {
               title: "丙通沙（索磷布韦维帕他韦）",
@@ -5310,6 +5481,7 @@
           id: 170,
           category: "drug",
           number: 170,
+          info: { department: "感染病科", dosageForm: "注射剂", spec: "50mg", approvalRegion: "爱尔兰", approvalDate: "2022-03-11" },
           langs: {
             zh: {
               title: "注射用两性霉素B脂质体",
@@ -5335,6 +5507,7 @@
           id: 171,
           category: "drug",
           number: 171,
+          info: { department: "医疗美容科", dosageForm: "注射液", spec: "2ml/支", approvalRegion: "韩国", landingDate: "2024年12月9日" },
           langs: {
             zh: {
               title: "去氧胆酸注射液",
@@ -5360,6 +5533,7 @@
           id: 172,
           category: "drug",
           number: 172,
+          info: { department: "感染科", dosageForm: "胶囊剂", spec: "100mg", approvalRegion: "美国", approvalDate: "2021-11-26", domesticListed: "是", domesticDate: "2021-12-14" },
           langs: {
             zh: {
               title: "硫酸艾沙康唑",
@@ -5385,6 +5559,7 @@
           id: 173,
           category: "drug",
           number: 173,
+          info: { department: "血液内科、儿科", dosageForm: "预充式注射笔（PFP）", spec: "150 mg/ml/支", approvalRegion: "美国、加拿大", landingDate: "2025 年 1 月 24 日" },
           langs: {
             zh: {
               title: "马塔西单抗",
@@ -5433,6 +5608,7 @@
           id: 175,
           category: "drug",
           number: 175,
+          info: { department: "血液科", dosageForm: "片剂", spec: "300mg", approvalRegion: "美国", approvalDate: "2022-01-10" },
           langs: {
             zh: {
               title: "阿扎胞苷片",
@@ -5458,6 +5634,7 @@
           id: 176,
           category: "drug",
           number: 176,
+          info: { department: "血液科", dosageForm: "片剂", spec: "250mg/片", approvalRegion: "美国", landingDate: "2022-08-19", domesticListed: "是", domesticDate: "2022年01月30日" },
           langs: {
             zh: {
               title: "拓舒沃®（艾伏尼布片）",
@@ -5482,6 +5659,7 @@
           id: 177,
           category: "drug",
           number: 177,
+          info: { department: "肿瘤科", dosageForm: "注射剂", spec: "100mg", approvalRegion: "美国", approvalDate: "2022-05-24" },
           langs: {
             zh: {
               title: "Blenrep",
@@ -5554,6 +5732,7 @@
           id: 180,
           category: "drug",
           number: 180,
+          info: { department: "血液科", dosageForm: "胶囊剂", spec: "100mg/粒", approvalRegion: "欧盟", approvalDate: "2022-11-28", domesticListed: "是", domesticDate: "2023-08-29" },
           langs: {
             zh: {
               title: "康可期（阿可替尼胶囊）",
@@ -5579,6 +5758,7 @@
           id: 181,
           category: "drug",
           number: 181,
+          info: { department: "血液科", dosageForm: "注射剂", spec: "500μg/1mL/支", approvalRegion: "日本", landingDate: "2023年08月02日", domesticListed: "是", domesticDate: "2024年6月28日" },
           langs: {
             zh: {
               title: "百斯瑞明®（聚乙二醇脯氨酸干扰素α-2b）",
@@ -5654,6 +5834,7 @@
           id: 184,
           category: "drug",
           number: 184,
+          info: { department: "血液内科", dosageForm: "注射用冻干粉", spec: "62mg/瓶，1瓶/盒", approvalRegion: "美国", approvalDate: "2024-6-29" },
           langs: {
             zh: {
               title: "莫替福肽",
@@ -5704,6 +5885,7 @@
           id: 186,
           category: "drug",
           number: 186,
+          info: { department: "血液科", dosageForm: "注射剂(冻干粉针剂)", spec: "10mg/瓶", approvalRegion: "美国", approvalDate: "2022-04-02", domesticListed: "是", domesticDate: "2024年12月6日" },
           langs: {
             zh: {
               title: "替朗妥昔单抗冻干粉制剂",
@@ -5729,6 +5911,7 @@
           id: 187,
           category: "drug",
           number: 187,
+          info: { department: "血液科", dosageForm: "片剂", spec: "40mg", approvalRegion: "美国", landingDate: "2022-04-02", domesticListed: "是" },
           langs: {
             zh: {
               title: "阿思尼布（暂定）",
@@ -5804,6 +5987,7 @@
           id: 190,
           category: "drug",
           number: 190,
+          info: { department: "血液内科", dosageForm: "注射剂溶液", spec: "5毫升/安瓿", approvalRegion: "英国", landingDate: "2022-12-28" },
           langs: {
             zh: {
               title: "甲氧沙林 G.L.Pharma 20微克/毫升血液成分修饰溶液",
@@ -5829,6 +6013,7 @@
           id: 191,
           category: "drug",
           number: 191,
+          info: { department: "血液内科", dosageForm: "片剂", spec: "10片/盒", approvalRegion: "日本", landingDate: "2025 年 12月 09日" },
           langs: {
             zh: {
               title: "盐酸奎扎替尼片",
@@ -5852,6 +6037,7 @@
           id: 192,
           category: "drug",
           number: 192,
+          info: { department: "血液内科", dosageForm: "注射用浓溶液", spec: "200mg/2.5mL", approvalRegion: "美国、澳大利亚", landingDate: "2026年7月15日" },
           langs: {
             zh: {
               title: "去纤苷",
@@ -5877,6 +6063,7 @@
           id: 193,
           category: "drug",
           number: 193,
+          info: { department: "血液科", dosageForm: "注射剂溶液", spec: "5 毫升/安瓿", approvalRegion: "法国", approvalDate: "2023-10-25" },
           langs: {
             zh: {
               title: "甲氧沙林 MACOPHARMA 20微克/毫升血液成分修饰溶液",
@@ -5904,6 +6091,7 @@
           id: 194,
           category: "drug",
           number: 194,
+          info: { department: "医学影像科(放射治疗专业）", dosageForm: "注射剂（输液袋）", spec: "300ml/袋", approvalRegion: "日本", landingDate: "2025 年 2月 16 日" },
           langs: {
             zh: {
               title: "STEBORONINE静脉滴注液硼（10B）法仑",
@@ -6053,6 +6241,7 @@
           id: 200,
           category: "drug",
           number: 200,
+          info: { department: "心血管内科", dosageForm: "注射剂", spec: "1支/盒", approvalRegion: "美国", landingDate: "2026年7月14日" },
           langs: {
             zh: {
               title: "夫曲司兰",
@@ -6103,6 +6292,7 @@
           id: 202,
           category: "drug",
           number: 202,
+          info: { department: "普外科、内分泌科", dosageForm: "注射剂", approvalRegion: "欧盟", landingDate: "2025 年 9 月17日" },
           langs: {
             zh: {
               title: "帕罗培特立帕肽",
@@ -6128,6 +6318,7 @@
           id: 203,
           category: "drug",
           number: 203,
+          info: { department: "普外科", dosageForm: "栓剂", spec: "4枚/盒", approvalRegion: "古巴", landingDate: "2026年 2月 3 日" },
           langs: {
             zh: {
               title: "重组链激酶栓剂",
@@ -6153,6 +6344,7 @@
           id: 204,
           category: "drug",
           number: 204,
+          info: { department: "生殖健康与不孕症科", dosageForm: "栓剂", spec: "15 粒/盒", approvalRegion: "英国", landingDate: "2026年1月23日" },
           langs: {
             zh: {
               title: "黄体酮栓",
@@ -6176,6 +6368,7 @@
           id: 205,
           category: "drug",
           number: 205,
+          info: { department: "麻醉科", dosageForm: "注射剂", spec: "250mg/瓶", approvalRegion: "美国", landingDate: "2026年6月5日" },
           langs: {
             zh: {
               title: "注射用丹曲林钠混悬剂",
@@ -6201,6 +6394,7 @@
           id: 609,
           category: "drug",
           number: 206,
+          info: { department: "肾病学科、血液内科", dosageForm: "注射液", spec: "1080mg/20ML/瓶", approvalRegion: "瑞典", landingDate: "2026年8月21日" },
           langs: {
             zh: {
               title: "安帕威利",
@@ -6252,6 +6446,7 @@
           id: 207,
           category: "device",
           number: 2,
+          info: { department: "整形外科", spec: "CYTOCARE 516/5ml", approvalRegion: "法国" },
           langs: {
             zh: {
               title: "GEM PLUS HARD 组织修复用材料（GEM PLUS HARD）",
@@ -6277,6 +6472,7 @@
           id: 208,
           category: "device",
           number: 3,
+          info: { department: "整形外科", spec: "CYTOCARE 516/5ml", approvalRegion: "法国" },
           langs: {
             zh: {
               title: "注射用面部修复材料（CYTOCARE）",
@@ -6327,6 +6523,7 @@
           id: 210,
           category: "device",
           number: 5,
+          info: { department: "整形外科", spec: "AestheFil l-V200/200mg", approvalRegion: "韩国", domesticListed: "是", domesticDate: "2024年1月17日" },
           langs: {
             zh: {
               title: "AestheFill 组织修复材料（AestheFill）",
@@ -6379,6 +6576,7 @@
           id: 212,
           category: "device",
           number: 7,
+          info: { department: "整形外科", spec: "1个/盒", approvalRegion: "欧盟", approvalDate: "2024年08月09日" },
           langs: {
             zh: {
               title:
@@ -6509,6 +6707,7 @@
           id: 217,
           category: "device",
           number: 12,
+          info: { department: "运动医学科", spec: "腱骨融合器KF08011A 楔形骨块SBO352510 楔形骨块SBO402514", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "聚酯胶原骨修复材料Smartbone ORTHO",
@@ -6534,6 +6733,7 @@
           id: 218,
           category: "device",
           number: 13,
+          info: { department: "骨科", spec: "0127（小号）、0128（中号）、 0129（大号）", approvalRegion: "以色列", domesticListed: "是", domesticDate: "2024年7月24日" },
           langs: {
             zh: {
               title:
@@ -6543,12 +6743,12 @@
             },
             ja: {
               title: "InSpace System Implantable Balloon 吸収性肩関節バルーン",
-              description: "腱板損傷の治療。",
+              description: "肩袖損傷の治療に用いる。",
               specialty: "スポーツ医学科",
             },
             en: {
               title: "InSpace System Implantable Absorbable Shoulder Balloon",
-              description: "Treatment of rotator cuff injury.",
+              description: "For treatment of rotator cuff injury.",
               specialty: "Sports Medicine",
             },
           },
@@ -6583,6 +6783,7 @@
           id: 220,
           category: "device",
           number: 15,
+          info: { department: "医学影像科", spec: "1台/箱", approvalRegion: "日本" },
           langs: {
             zh: {
               title: "X射线管组件 X-RAY TUBE Assembly",
@@ -6608,23 +6809,24 @@
           id: 221,
           category: "device",
           number: 16,
+          info: { department: "医学影像科", spec: "TSX-304A", approvalRegion: "日本" },
           langs: {
             zh: {
               title: "全身用 X 射线 CT 诊断装置 Aquilion Precision",
               description:
-                "使用计算机处理患者多个方向的 X 射线透视信号，为诊断治疗提供重组图像。",
+                "使用计算机处理患者多个方向的 X 射线透视信号，为 诊断治疗提供重组图像。",
               specialty: "医学影像科",
             },
             ja: {
               title: "Aquilion Precision 全身用X線CT診断装置",
               description:
-                "患者の複数方向からのX線透過信号をコンピュータ処理し、診断・治療用の再構成画像を提供する。",
+                "複数方向から取得した患者のX線透過信号をコンピュータで処理し、診断・治療のための再構成画像を提供する。",
               specialty: "医用画像診断科",
             },
             en: {
               title: "Aquilion Precision Whole-Body X-ray CT Diagnostic System",
               description:
-                "Uses computer processing of X-ray projection signals from multiple directions around the patient to provide reconstructed images for diagnosis and treatment.",
+                "Processes X-ray transmission signals acquired from multiple directions around the patient by computer to provide reconstructed images for diagnosis and treatment.",
               specialty: "Medical Imaging",
             },
           },
@@ -6633,6 +6835,7 @@
           id: 222,
           category: "device",
           number: 17,
+          info: { department: "医学影像科", approvalRegion: "日本", approvalDate: "2025年11月12日" },
           langs: {
             zh: {
               title: "放射治疗计划软件（放射線治療計画プログラム）",
@@ -6658,6 +6861,7 @@
           id: 223,
           category: "device",
           number: 18,
+          info: { department: "医学影像科", approvalRegion: "欧盟", approvalDate: "2025年12月24日" },
           langs: {
             zh: {
               title: "乳腺螺旋数字化体层摄影设备 nu:view",
@@ -6683,6 +6887,7 @@
           id: 224,
           category: "device",
           number: 19,
+          info: { department: "医学影像科", approvalRegion: "日本", approvalDate: "2026年3月16日" },
           langs: {
             zh: {
               title:
@@ -6693,7 +6898,7 @@
             ja: {
               title:
                 "ホウ素中性子捕捉療法用線量計算ソフトウェア Treatment planning program for boron neutron capture therapy",
-              description: "切除不能の局所進行または局所再発頭頸部癌。",
+              description: "切除不能な局所進行または局所再発頭頸部癌。",
               specialty: "医用画像診断科",
             },
             en: {
@@ -6709,6 +6914,7 @@
           id: 225,
           category: "device",
           number: 20,
+          info: { department: "医学影像科", approvalRegion: "日本", approvalDate: "2026年3月16日" },
           langs: {
             zh: {
               title:
@@ -6719,7 +6925,7 @@
             ja: {
               title:
                 "ホウ素中性子捕捉療法用中性子照射装置 Neutron irradiation system for boron neutron capture therapy",
-              description: "切除不能の局所進行または局所再発頭頸部癌。",
+              description: "切除不能な局所進行または局所再発頭頸部癌。",
               specialty: "医用画像診断科",
             },
             en: {
@@ -6735,6 +6941,7 @@
           id: 226,
           category: "device",
           number: 21,
+          info: { department: "医学影像科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -6763,6 +6970,7 @@
           id: 227,
           category: "device",
           number: 22,
+          info: { department: "儿科", spec: "960人份/盒", approvalRegion: "欧盟", approvalDate: "2024-5-15" },
           langs: {
             zh: {
               title: "NeoLSD™ MSMS Kit 溶酶体贮积症检测试剂盒（串联质谱法）",
@@ -6790,6 +6998,7 @@
           id: 228,
           category: "device",
           number: 23,
+          info: { department: "检验科和神经内科", spec: "100测试/盒", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -6818,6 +7027,7 @@
           id: 229,
           category: "device",
           number: 24,
+          info: { department: "检验科和神经内科", spec: "4×1.0mL", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "CalSet Total-Tau 总Tau蛋白定标液",
@@ -6843,6 +7053,7 @@
           id: 230,
           category: "device",
           number: 25,
+          info: { department: "检验科和神经内科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "PreciControl Total-Tau 总Tau蛋白质控品",
@@ -6868,6 +7079,7 @@
           id: 231,
           category: "device",
           number: 26,
+          info: { department: "检验科和神经内科", spec: "100测试/盒", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -6896,6 +7108,7 @@
           id: 232,
           category: "device",
           number: 27,
+          info: { department: "检验科和神经内科", spec: "6×1.0 mL", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -6924,6 +7137,7 @@
           id: 233,
           category: "device",
           number: 28,
+          info: { department: "检验科和神经内科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -6952,6 +7166,7 @@
           id: 234,
           category: "device",
           number: 29,
+          info: { department: "检验科和神经内科", spec: "4×1.0mL", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "CalSet β-Amyloid(1-42) II β-淀粉样蛋白（1-42）定标液",
@@ -6978,6 +7193,7 @@
           id: 235,
           category: "device",
           number: 30,
+          info: { department: "检验科和神经内科", spec: "6×1.0 mL", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -7005,6 +7221,7 @@
           id: 236,
           category: "device",
           number: 31,
+          info: { department: "检验科和神经内科", spec: "4×1.0mL", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "CalSet Phospho-Tau (181P) 磷酸化Tau蛋白（181P）定标液",
@@ -7031,6 +7248,7 @@
           id: 237,
           category: "device",
           number: 32,
+          info: { department: "医学检验科", spec: "2个/盒", approvalRegion: "欧盟", approvalDate: "2025年06月13日" },
           langs: {
             zh: {
               title: "高效液相色谱柱HPLC Cartridge",
@@ -7056,6 +7274,7 @@
           id: 238,
           category: "device",
           number: 33,
+          info: { department: "医学检验科", spec: "450 测试/盒", approvalRegion: "欧盟", approvalDate: "2025年06月13日" },
           langs: {
             zh: {
               title:
@@ -7084,6 +7303,7 @@
           id: 239,
           category: "device",
           number: 34,
+          info: { department: "医学检验科", spec: "1 台/套", approvalRegion: "欧盟", approvalDate: "2025年06月13日" },
           langs: {
             zh: {
               title:
@@ -7112,6 +7332,7 @@
           id: 240,
           category: "device",
           number: 35,
+          info: { department: "医学检验科", spec: "10x5 mL", approvalRegion: "欧盟", approvalDate: "2025年06月13日" },
           langs: {
             zh: {
               title:
@@ -7139,6 +7360,7 @@
           id: 241,
           category: "device",
           number: 36,
+          info: { department: "医学检验科", spec: "10x5 mL", approvalRegion: "欧盟", approvalDate: "2025年06月13日" },
           langs: {
             zh: {
               title:
@@ -7166,6 +7388,7 @@
           id: 242,
           category: "device",
           number: 37,
+          info: { department: "检验科", spec: "M2-PK Quick", approvalRegion: "德国" },
           langs: {
             zh: {
               title: "M2 型丙酮酸激酶检测试剂盒（胶体金法）",
@@ -7216,6 +7439,7 @@
           id: 244,
           category: "device",
           number: 39,
+          info: { department: "医学检验科", spec: "9瓶/盒", approvalRegion: "美国", approvalDate: "2025年07月11日" },
           langs: {
             zh: {
               title:
@@ -7243,6 +7467,7 @@
           id: 245,
           category: "device",
           number: 40,
+          info: { department: "医学检验科", spec: "50测试/盒", approvalRegion: "美国", approvalDate: "2025年07月11日" },
           langs: {
             zh: {
               title:
@@ -7271,6 +7496,7 @@
           id: 246,
           category: "device",
           number: 41,
+          info: { department: "检验科", spec: "96 人份/盒", approvalRegion: "德国", domesticListed: "是" },
           langs: {
             zh: {
               title:
@@ -7298,6 +7524,7 @@
           id: 247,
           category: "device",
           number: 42,
+          info: { department: "检验科", spec: "货号： 089467791 90 规格： 100 测试/ 盒", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -7326,6 +7553,7 @@
           id: 248,
           category: "device",
           number: 43,
+          info: { department: "检验科", spec: "货号： 071259411 90 规格： 4×1.0mL", approvalRegion: "欧盟", domesticListed: "是", domesticDate: "2022-03-16" },
           langs: {
             zh: {
               title: "生长分化因子-15 定标液（CalSet GDF-15）",
@@ -7351,6 +7579,7 @@
           id: 249,
           category: "device",
           number: 44,
+          info: { department: "检验科", spec: "货号： 083336021 90 规格： 100 测试/ 盒", approvalRegion: "欧盟", domesticListed: "是", domesticDate: "2023-04-14" },
           langs: {
             zh: {
               title:
@@ -7379,24 +7608,25 @@
           id: 250,
           category: "device",
           number: 45,
+          info: { department: "检验科", spec: "型号：LIAISON? FGF 23 规格：50测试/ 盒", approvalRegion: "欧盟", domesticListed: "是" },
           langs: {
             zh: {
               title:
                 "LIAISON ® FGF 23 化学发光检测试剂盒 (LIAISON® FGF 23 chemiluminescence immunoassay (CLIA) assay)",
               description:
-                "拟用于体外定量测定的人血浆 EDTA 标本中完整的 FGF23 多肽。",
+                "LIAISON FGF23使用化学发光免疫测定法（CLIA）用于体外定量测定的人血浆EDTA标本中完整的FGF23多肽。",
               specialty: "医学检验科",
             },
             ja: {
               title: "LIAISON® FGF 23 化学発光免疫測定（CLIA）キット",
               description:
-                "ヒトEDTA血漿検体中の完全長FGF23ポリペプチドを体外で定量測定するために使用する。",
+                "LIAISON FGF23は化学発光免疫測定法（CLIA）を用い、ヒトEDTA血漿中のインタクトFGF23ペプチドを体外定量測定する。",
               specialty: "臨床検査科",
             },
             en: {
               title: "LIAISON® FGF 23 Chemiluminescence Immunoassay (CLIA)",
               description:
-                "Intended for in vitro quantitative determination of intact FGF23 polypeptide in human EDTA plasma specimens.",
+                "The LIAISON FGF23 uses chemiluminescent immunoassay (CLIA) for in vitro quantitative determination of intact FGF23 peptide in human EDTA plasma.",
               specialty: "Laboratory Medicine",
             },
           },
@@ -7405,6 +7635,7 @@
           id: 251,
           category: "device",
           number: 46,
+          info: { department: "检验科", spec: "100检测/试剂盒", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "潘多姆检测（PanTum Detect）",
@@ -7414,13 +7645,13 @@
             ja: {
               title: "PanTum Detect",
               description:
-                "マクロファージ中のApo10、TKTL1を検出し、腫瘍病変を定量評価する。",
+                "マクロファージ中のApo10およびTKTL1を検出することにより、腫瘍病変を定量的に評価する。",
               specialty: "臨床検査科",
             },
             en: {
               title: "PanTum Detect",
               description:
-                "Quantitative assessment of tumor lesions by detecting Apo10 and TKTL1 in macrophages.",
+                "Quantitatively assesses tumorous lesions by detecting Apo10 and TKTL1 in macrophages.",
               specialty: "Laboratory Medicine",
             },
           },
@@ -7429,6 +7660,7 @@
           id: 252,
           category: "device",
           number: 47,
+          info: { department: "肿瘤科", spec: "96测试/盒", approvalRegion: "欧盟", approvalDate: "2024 年 11月 14 日" },
           langs: {
             zh: {
               title: "QuantiDNA™ 血浆游离DNA测定试剂盒",
@@ -7480,6 +7712,7 @@
           id: 254,
           category: "device",
           number: 49,
+          info: { department: "医学检验科", spec: "100测试/盒", approvalRegion: "欧盟", approvalDate: "2025年12月24日" },
           langs: {
             zh: {
               title: "磷酸化tau-181蛋白血液检测试剂盒（电化学发光法）",
@@ -7506,6 +7739,7 @@
           id: 255,
           category: "device",
           number: 50,
+          info: { department: "医学检验科", approvalRegion: "欧盟", approvalDate: "2025年12月24日" },
           langs: {
             zh: {
               title: "磷酸化tau-181蛋白血液质控品",
@@ -7531,6 +7765,7 @@
           id: 256,
           category: "device",
           number: 51,
+          info: { department: "医学检验科", approvalRegion: "欧盟", approvalDate: "2025年12月24日" },
           langs: {
             zh: {
               title: "磷酸化tau-181蛋白血液定标液",
@@ -7556,11 +7791,12 @@
           id: 257,
           category: "device",
           number: 52,
+          info: { department: "医学检验科", approvalRegion: "欧盟", approvalDate: "2026年2月11日" },
           langs: {
             zh: {
               title:
                 "过敏原特异性 IgE 抗体检测试剂（荧光免疫法）ImmunoCAP™ Specific IgE",
-              description: "用于过敏原特异性 IgE 抗体检测",
+              description: "用于过敏原特异性 IgE 抗体检测。",
               specialty: "医学检验科",
             },
             ja: {
@@ -7581,6 +7817,7 @@
           id: 258,
           category: "device",
           number: 53,
+          info: { department: "检验科", spec: "450 测试/盒", approvalRegion: "欧盟", approvalDate: "2026年2月11日" },
           langs: {
             zh: {
               title:
@@ -7609,6 +7846,7 @@
           id: 259,
           category: "device",
           number: 54,
+          info: { department: "医学检验科", spec: "2 个/盒", approvalRegion: "欧盟", approvalDate: "2026年2月11日" },
           langs: {
             zh: {
               title: "快速液相色谱柱Rapid Cartridge B",
@@ -7634,6 +7872,7 @@
           id: 260,
           category: "device",
           number: 55,
+          info: { department: "肿瘤科", spec: "24测试/盒", approvalRegion: "欧盟", approvalDate: "2024 年 11月 14 日" },
           langs: {
             zh: {
               title: "ColoScape™结直肠癌相关基因突变检测试剂",
@@ -7660,6 +7899,7 @@
           id: 261,
           category: "device",
           number: 56,
+          info: { department: "医学美容科", spec: "LANLUMA V 和LANLUMA X", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "聚左旋乳酸胶原蛋白刺激剂",
@@ -7685,6 +7925,7 @@
           id: 262,
           category: "device",
           number: 57,
+          info: { department: "医美科", spec: "1mL/支", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "全液态聚己内酯注射型植入剂",
@@ -7710,6 +7951,7 @@
           id: 263,
           category: "device",
           number: 58,
+          info: { department: "整形外科", spec: "1个/盒", approvalRegion: "欧盟", approvalDate: "2024年08月09日" },
           langs: {
             zh: {
               title: "MemoryGel Xtra",
@@ -7803,6 +8045,7 @@
           id: 267,
           category: "device",
           number: 62,
+          info: { department: "医美科", spec: "BPL100-27BC、 BPL100-60BC", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "迪妮碧 无菌可吸收透明质酸皮下填充材料",
@@ -7829,6 +8072,7 @@
           id: 268,
           category: "device",
           number: 63,
+          info: { department: "医美科", spec: "BPLN-100BC", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "斯凯普乐斯-希雅 植入 无菌可吸收透明质酸填充物",
@@ -7855,6 +8099,7 @@
           id: 269,
           category: "device",
           number: 64,
+          info: { department: "医美科", spec: "NCTF 135 HA", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "注射用透明质酸钠复合溶液",
@@ -7905,6 +8150,7 @@
           id: 271,
           category: "device",
           number: 66,
+          info: { department: "医美科", spec: "Artfiller Fine Lines", approvalRegion: "欧盟", domesticListed: "是", domesticDate: "2024年7月31日" },
           langs: {
             zh: {
               title: "注射用交联透明质酸钠凝胶",
@@ -7915,13 +8161,13 @@
             ja: {
               title: "注射用架橋ヒアルロン酸ナトリウムゲル",
               description:
-                "眼窩、額、上唇、頬の浅層真皮への注入充填に使用する。",
+                "眼窩周囲、前額、上唇および頬の真皮表層への注入充填に用いる。",
               specialty: "美容医療科",
             },
             en: {
               title: "Cross-Linked Sodium Hyaluronate Gel for Injection",
               description:
-                "For superficial dermal injection and filling of the orbital area, forehead, upper lip, and cheeks.",
+                "For injection and filling in the superficial dermis of the periorbital region, forehead, upper lip, and cheeks.",
               specialty: "Medical Aesthetics",
             },
           },
@@ -7956,6 +8202,7 @@
           id: 273,
           category: "device",
           number: 68,
+          info: { department: "医疗美容科", spec: "ULTRACOL", approvalRegion: "韩国" },
           langs: {
             zh: {
               title: "ULTRACOL",
@@ -8031,21 +8278,22 @@
           id: 276,
           category: "device",
           number: 71,
+          info: { department: "医疗美容科", spec: "2ml/支", approvalRegion: "欧盟", approvalDate: "2026年03月27日" },
           langs: {
             zh: {
               title: "注射用多核苷酸钠填充剂",
-              description: "暂时改善成人面部皱纹",
+              description: "改善皮肤饱满度、柔软度和张力，促进高纤维化化组织重塑。",
               specialty: "医疗美容科",
             },
             ja: {
               title: "注射用ポリヌクレオチドナトリウム充填剤",
-              description: "成人の顔面皺を一時的に改善する。",
+              description: "皮膚のふくらみ・柔軟性・張りを改善し、線維化の強い組織のリモデリングを促進する。",
               specialty: "美容医療科",
             },
             en: {
               title: "Sodium Polynucleotide Injectable Filler",
               description:
-                "Temporary improvement of facial wrinkles in adults.",
+                "Improves skin fullness, softness, and tone, and promotes remodeling of highly fibrotic tissue.",
               specialty: "Medical Aesthetics",
             },
           },
@@ -8054,6 +8302,7 @@
           id: 277,
           category: "device",
           number: 72,
+          info: { department: "医疗美容科", spec: "N4SA", approvalRegion: "欧盟", approvalDate: "2025 年 4 月 29 日" },
           langs: {
             zh: {
               title: "医用混匀机RIGENERA Machine",
@@ -8079,6 +8328,7 @@
           id: 278,
           category: "device",
           number: 73,
+          info: { department: "医疗美容科", spec: "1ml/支/盒", approvalRegion: "韩国", approvalDate: "2025年12月1日" },
           langs: {
             zh: {
               title: "多孔聚己内酯微球注射型植入剂",
@@ -8106,6 +8356,7 @@
           id: 279,
           category: "device",
           number: 74,
+          info: { department: "医疗美容科", spec: "2ml/支", approvalRegion: "欧盟", approvalDate: "2026年03月27日" },
           langs: {
             zh: {
               title: "注射用多核苷酸钠-透明质酸钠复合填充剂",
@@ -8117,14 +8368,14 @@
               title:
                 "注射用ポリヌクレオチドナトリウム・ヒアルロン酸ナトリウム複合充填剤",
               description:
-                "皮膚の引き締まりと弾力性を改善し、肌質の外観を著しく改善するとともに、ストレッチマークおよび陥凹性瘢痕のリモデリングを促進する。",
+                "皮膚の引き締まりと弾力を改善し、肌質の外観を顕著に改善し、ストレッチマークおよび陥凹性瘢痕のリモデリングを促進する。",
               specialty: "美容医療科",
             },
             en: {
               title:
                 "Sodium Polynucleotide-Sodium Hyaluronate Compound Injectable Filler",
               description:
-                "Improves skin firmness and elasticity, significantly improves the appearance of skin texture, and promotes remodeling of stretch marks and atrophic scars.",
+                "Improves skin firmness and elasticity, markedly improves skin texture and appearance, and promotes remodeling of stretch marks and depressed scars.",
               specialty: "Medical Aesthetics",
             },
           },
@@ -8133,23 +8384,24 @@
           id: 280,
           category: "device",
           number: 75,
+          info: { department: "医疗美容科", approvalRegion: "韩国", approvalDate: "2025年07月11日" },
           langs: {
             zh: {
               title: "注射用多核苷酸钠填充剂",
               description:
-                "改善皮肤的饱满度、柔软度和张力，促进高纤维化组织重塑。",
+                "暂时改善成人面部皱纹",
               specialty: "医疗美容科",
             },
             ja: {
               title: "注射用ポリヌクレオチドナトリウム充填剤",
               description:
-                "皮膚のふくらみ、柔軟性、緊張を改善し、高度線維化組織のリモデリングを促進する。",
+                "成人の顔面のしわを一時的に改善する。",
               specialty: "美容医療科",
             },
             en: {
               title: "Sodium Polynucleotide Injectable Filler",
               description:
-                "Improves skin fullness, softness, and tension and promotes remodeling of highly fibrotic tissue.",
+                "Temporarily improves facial wrinkles in adults.",
               specialty: "Medical Aesthetics",
             },
           },
@@ -8158,6 +8410,7 @@
           id: 281,
           category: "device",
           number: 76,
+          info: { department: "医疗美容科", spec: "7945AS", approvalRegion: "欧盟", approvalDate: "2025 年 4 月 29 日" },
           langs: {
             zh: {
               title: "医用显微切割刀片RIGENERACONS",
@@ -8381,6 +8634,7 @@
           id: 290,
           category: "device",
           number: 85,
+          info: { department: "眼科", spec: "AT LISA tri toric 939MP", approvalRegion: "德国", domesticListed: "是", domesticDate: "2023-08-03" },
           langs: {
             zh: {
               title: "丙烯酸三焦点散光人工晶状体",
@@ -8406,6 +8660,7 @@
           id: 291,
           category: "device",
           number: 86,
+          info: { department: "眼科", spec: "Elite", approvalRegion: "美国", domesticListed: "是", domesticDate: "2023-10-23" },
           langs: {
             zh: {
               title: "CS 巩膜镜",
@@ -8454,6 +8709,7 @@
           id: 293,
           category: "device",
           number: 88,
+          info: { department: "眼科", spec: "SCHWIND ATOS", approvalRegion: "德国", domesticListed: "是" },
           langs: {
             zh: {
               title:
@@ -8559,6 +8815,7 @@
           id: 297,
           category: "device",
           number: 92,
+          info: { department: "外科", spec: "S3.1001", approvalRegion: "法国" },
           langs: {
             zh: {
               title: "LLOUQUET & GUERIN PTOSIS SLING SE",
@@ -8568,13 +8825,13 @@
             ja: {
               title: "LLOUQUET & GUERIN PTOSIS SLING SE",
               description:
-                "前頭筋吊り上げ術による矯正を必要とする眼瞼下垂の治療に使用する。",
+                "前額筋懸垂術による矯正を要する眼瞼下垂の治療に用いる。",
               specialty: "眼科",
             },
             en: {
               title: "LLOUQUET & GUERIN PTOSIS SLING SE",
               description:
-                "For treatment of ptosis requiring correction by frontalis suspension surgery.",
+                "For treatment of ptosis requiring correction via frontalis suspension surgery.",
               specialty: "Ophthalmology",
             },
           },
@@ -8737,21 +8994,22 @@
           id: 304,
           category: "device",
           number: 99,
+          info: { department: "眼科", spec: "P200TE", approvalRegion: "英国", domesticListed: "是", domesticDate: "2024年12月11日" },
           langs: {
             zh: {
               title: "眼底多模式影像平台（OCT Ophthalmoscope）",
-              description: "手术设备",
+              description: "用于眼底检查",
               specialty: "眼科",
             },
             ja: {
               title:
                 "眼底マルチモーダル画像プラットフォーム（OCT Ophthalmoscope）",
-              description: "手術用装置。",
+              description: "眼底検査に用いる。",
               specialty: "眼科",
             },
             en: {
               title: "OCT Ophthalmoscope Multimodal Fundus Imaging Platform",
-              description: "Surgical equipment.",
+              description: "For fundus examination.",
               specialty: "Ophthalmology",
             },
           },
@@ -8760,21 +9018,22 @@
           id: 305,
           category: "device",
           number: 100,
+          info: { department: "眼科", spec: "P200TxE", approvalRegion: "英国", domesticListed: "是", domesticDate: "2024年12月11日" },
           langs: {
             zh: {
               title: "眼底多模式影像平台（OCT Ophthalmoscope）",
-              description: "手术设备",
+              description: "用于眼底检查",
               specialty: "眼科",
             },
             ja: {
               title:
                 "眼底マルチモーダル画像プラットフォーム（OCT Ophthalmoscope）",
-              description: "手術用装置。",
+              description: "眼底検査に用いる。",
               specialty: "眼科",
             },
             en: {
               title: "OCT Ophthalmoscope Multimodal Fundus Imaging Platform",
-              description: "Surgical equipment.",
+              description: "For fundus examination.",
               specialty: "Ophthalmology",
             },
           },
@@ -8839,25 +9098,26 @@
           id: 308,
           category: "device",
           number: 103,
+          info: { department: "眼科", spec: "G2-W", approvalRegion: "美国", domesticListed: "是", domesticDate: "2024年5月17日" },
           langs: {
             zh: {
               title:
                 "青光眼引流支架（iStent inject® W Trabecular Micro-Bypass System）",
               description:
-                "拟用于联合白内障手术，降低轻中度原发性开角型青光眼成年患者的眼压（IOP）。",
+                "该器械适用于联合白内障手术，降低轻中度原发性开角型青光眼成年患者的眼压。",
               specialty: "眼科",
             },
             ja: {
               title:
                 "iStent inject® W Trabecular Micro-Bypass System 緑内障ドレナージステント",
               description:
-                "白内障手術との併用により、軽度～中等度原発開放隅角緑内障の成人患者の眼圧（IOP）を低下させる目的で使用する。",
+                "白内障手術との併用において、軽度〜中等度の原発開放隅角緑内障成人患者の眼圧を低下させる。",
               specialty: "眼科",
             },
             en: {
               title: "iStent inject® W Trabecular Micro-Bypass System",
               description:
-                "Intended for use in conjunction with cataract surgery to reduce intraocular pressure, IOP, in adult patients with mild to moderate primary open-angle glaucoma.",
+                "In combination with cataract surgery, reduces intraocular pressure in adult patients with mild-to-moderate primary open-angle glaucoma.",
               specialty: "Ophthalmology",
             },
           },
@@ -8866,6 +9126,7 @@
           id: 309,
           category: "device",
           number: 104,
+          info: { department: "眼科", spec: "FB-313、 FB-313MF15、FB-313MF30", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "飞秒白内障人工晶状体 (LACS Aspheric Intraocular Lens)",
@@ -8892,6 +9153,7 @@
           id: 310,
           category: "device",
           number: 105,
+          info: { department: "眼科", spec: "CAPSULASER SYSTEM", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "白内障激光撕囊手术系统",
@@ -8917,6 +9179,7 @@
           id: 311,
           category: "device",
           number: 106,
+          info: { department: "眼科", spec: "N/A", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "患者界面透镜",
@@ -8942,23 +9205,24 @@
           id: 312,
           category: "device",
           number: 107,
+          info: { department: "眼科", spec: "CAPSULBlue", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "囊膜染色剂",
               description:
-                "通过对晶状体的前囊染色，可用于眼科手术（即适用于白内障手术）",
+                "通过对晶状体的前囊染色，可用于眼科手术（即适用于\r 白内障手术）",
               specialty: "眼科",
             },
             ja: {
               title: "嚢染色剤",
               description:
-                "水晶体前嚢を染色することにより眼科手術、すなわち白内障手術、に使用する。",
+                "水晶体前嚢の染色により、眼科手術（白内障手術）に使用する。",
               specialty: "眼科",
             },
             en: {
               title: "Capsular Staining Agent",
               description:
-                "For ophthalmic surgery, specifically cataract surgery, by staining the anterior lens capsule.",
+                "For staining the anterior lens capsule in ophthalmic surgery (i.e., cataract surgery).",
               specialty: "Ophthalmology",
             },
           },
@@ -8967,6 +9231,7 @@
           id: 313,
           category: "device",
           number: 108,
+          info: { department: "眼科", spec: "强脉冲光灯头 强脉冲光治疗仪主机", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "强脉冲光治疗仪",
@@ -9045,6 +9310,7 @@
           id: 316,
           category: "device",
           number: 111,
+          info: { department: "眼科", spec: "Gaush iDea", approvalRegion: "意大利" },
           langs: {
             zh: {
               title: "干眼检测仪",
@@ -9070,6 +9336,7 @@
           id: 317,
           category: "device",
           number: 112,
+          info: { department: "眼科", spec: "（-0.75；-1；-1.25；-1.5；-1.75；-2；-2.25；-2.5；-2.75；-3；-3.25；-3.5；-3.75；-4；-4.25；-4.5；-4.75；-5", approvalRegion: "加拿大" },
           langs: {
             zh: {
               title:
@@ -9098,6 +9365,7 @@
           id: 318,
           category: "device",
           number: 113,
+          info: { department: "眼科", spec: "ExTra II/510400", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "ELIOS 系统（含医用激光探针）",
@@ -9123,6 +9391,7 @@
           id: 319,
           category: "device",
           number: 114,
+          info: { department: "眼科", spec: "EndoArt®/", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "EndoArt ®人工角膜内皮层膜片",
@@ -9131,13 +9400,13 @@
             },
             ja: {
               title: "EndoArt® 人工角膜内皮膜",
-              description: "内皮機能代償不全による慢性角膜浮腫に適応する。",
+              description: "内皮機能不全に伴う慢性角膜浮腫に適応する。",
               specialty: "眼科",
             },
             en: {
               title: "EndoArt® Artificial Corneal Endothelial Layer",
               description:
-                "For chronic corneal edema caused by endothelial decompensation.",
+                "Indicated for chronic corneal edema caused by endothelial decompensation.",
               specialty: "Ophthalmology",
             },
           },
@@ -9146,6 +9415,7 @@
           id: 320,
           category: "device",
           number: 115,
+          info: { department: "眼科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "KeraKlear XT 人工角膜",
@@ -9171,6 +9441,7 @@
           id: 321,
           category: "device",
           number: 116,
+          info: { department: "眼科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -9182,13 +9453,13 @@
               title:
                 "Minimally Invasive Micro Sclerostomy（MIMS）System 微小侵襲強膜造口システム",
               description:
-                "緑内障に対し前房穿刺を行い高眼圧を低下させる眼科手術器具。",
+                "緑内障に対する前房穿刺により高眼圧を低下させるための眼科用手術器具。",
               specialty: "眼科",
             },
             en: {
               title: "Minimally Invasive Micro Sclerostomy (MIMS) System",
               description:
-                "Ophthalmic surgical instrument used for anterior chamber puncture in glaucoma to reduce elevated intraocular pressure.",
+                "Ophthalmic surgical instrument for anterior chamber paracentesis to lower elevated intraocular pressure in glaucoma.",
               specialty: "Ophthalmology",
             },
           },
@@ -9197,6 +9468,7 @@
           id: 322,
           category: "device",
           number: 117,
+          info: { department: "眼科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -9249,6 +9521,7 @@
           id: 324,
           category: "device",
           number: 119,
+          info: { department: "眼科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "角膜交联核黄素溶液",
@@ -9274,6 +9547,7 @@
           id: 325,
           category: "device",
           number: 120,
+          info: { department: "眼科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "角膜交联紫外光照射仪",
@@ -9347,6 +9621,7 @@
           id: 328,
           category: "device",
           number: 123,
+          info: { department: "眼科", approvalRegion: "德国" },
           langs: {
             zh: {
               title: "内界膜和视网膜前膜双层染色剂",
@@ -9373,6 +9648,7 @@
           id: 329,
           category: "device",
           number: 124,
+          info: { department: "眼科", spec: "NG SI IMT 3X", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "植入式微型黄斑镜",
@@ -9499,6 +9775,7 @@
           id: 334,
           category: "device",
           number: 129,
+          info: { department: "眼科", spec: "50ml", approvalRegion: "欧盟", approvalDate: "2025年06月03日" },
           langs: {
             zh: {
               title: "茶树油眼睑日常护理泡沫剂Naviblef Daily Care",
@@ -9552,6 +9829,7 @@
           id: 336,
           category: "device",
           number: 131,
+          info: { department: "眼科", spec: "50ml", approvalRegion: "欧盟", approvalDate: "2025年06月03日" },
           langs: {
             zh: {
               title: "茶树油眼睑加强护理泡沫剂Naviblef Intensive Care",
@@ -9578,6 +9856,7 @@
           id: 337,
           category: "device",
           number: 132,
+          info: { department: "眼科", spec: "10ml", approvalRegion: "欧盟", approvalDate: "2025年06月03日" },
           langs: {
             zh: {
               title: "交联羧甲基纤维素钠/辅酶 Q10/维生素 E TPGS 眼用凝胶",
@@ -9605,6 +9884,7 @@
           id: 338,
           category: "device",
           number: 133,
+          info: { department: "眼科", spec: "10ml", approvalRegion: "欧盟", approvalDate: "2025年06月03日" },
           langs: {
             zh: {
               title: "复方ω-3 多不饱和脂肪酸维生素 A 棕榈酸酯滴眼液VisuEVO",
@@ -9632,6 +9912,7 @@
           id: 339,
           category: "device",
           number: 134,
+          info: { department: "眼科", dosageForm: "滴眼液", approvalRegion: "欧盟", approvalDate: "2025年06月03日" },
           langs: {
             zh: {
               title: "辅酶 Q10 维生素 E TPGS 滴眼液",
@@ -9657,10 +9938,11 @@
           id: 340,
           category: "device",
           number: 135,
+          info: { department: "眼科", spec: "32片/盒", approvalRegion: "日本", approvalDate: "2025年10月22日" },
           langs: {
             zh: {
               title: "日抛视力矫正用着色隐形眼镜",
-              description: "（SEED 1dayPure EDOF）\n\n视力矫正",
+              description: "视力矫正。",
               specialty: "眼科",
             },
             ja: {
@@ -9707,6 +9989,7 @@
           id: 342,
           category: "device",
           number: 137,
+          info: { department: "眼科", approvalRegion: "美国", approvalDate: "2025年12月24日" },
           langs: {
             zh: {
               title:
@@ -9785,6 +10068,7 @@
           id: 345,
           category: "device",
           number: 140,
+          info: { department: "眼科", approvalRegion: "欧盟", approvalDate: "2026年6月24日" },
           langs: {
             zh: {
               title: "青光眼引流器（MINInject）",
@@ -9793,13 +10077,13 @@
             },
             ja: {
               title: "MINInject 緑内障ドレナージデバイス",
-              description: "開放隅角緑内障と確定診断された成人患者に適応する。",
+              description: "開放隅角緑内障と診断された成人患者に適応する。",
               specialty: "眼科",
             },
             en: {
               title: "MINInject Glaucoma Drainage Device",
               description:
-                "For adult patients diagnosed with open-angle glaucoma.",
+                "Indicated for adult patients diagnosed with open-angle glaucoma.",
               specialty: "Ophthalmology",
             },
           },
@@ -9808,6 +10092,7 @@
           id: 346,
           category: "device",
           number: 141,
+          info: { department: "眼科", approvalRegion: "欧盟", approvalDate: "2025年06月03日" },
           langs: {
             zh: {
               title: "景深延展型后房有晶体眼人工晶状体",
@@ -9835,6 +10120,7 @@
           id: 347,
           category: "device",
           number: 142,
+          info: { department: "血液科", spec: "9MG2000", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "MacoGenic G2 光疗机",
@@ -9860,6 +10146,7 @@
           id: 348,
           category: "device",
           number: 143,
+          info: { department: "血液科", spec: "XUV8501Q", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "MacoGenic Set 辐照袋",
@@ -9868,12 +10155,12 @@
             },
             ja: {
               title: "MacoGenic Set 照射バッグ",
-              description: "血液保存用滅菌バッグ、容量300 mL。",
+              description: "血液保存用の滅菌袋（容量300mL）。",
               specialty: "血液科",
             },
             en: {
               title: "MacoGenic Set Irradiation Bag",
-              description: "Sterile bag for blood storage, capacity 300 mL.",
+              description: "Sterile bag for storing blood (capacity 300 mL).",
               specialty: "Hematology",
             },
           },
@@ -9882,6 +10169,7 @@
           id: 349,
           category: "device",
           number: 144,
+          info: { department: "心血管内科", spec: "Magmaris 3.0/15；Magmaris 3.0/20；Magmaris 3.0/25 Magmaris 3.5/15；Magmaris 3.5/20；Magmaris 3.5/25", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "Magmaris 西罗莫司洗脱可吸收冠脉镁合金支架系统",
@@ -9909,6 +10197,7 @@
           id: 350,
           category: "device",
           number: 145,
+          info: { department: "心血管内科", spec: "H74939309010", approvalRegion: "美国", domesticListed: "是", domesticDate: "2023年11月24日" },
           langs: {
             zh: {
               title: "旋磨介入治疗系统",
@@ -9934,22 +10223,23 @@
           id: 351,
           category: "device",
           number: 146,
+          info: { department: "心血管内科", spec: "21M402 41M401 41M402 41M404 61M401 61M407", approvalRegion: "欧盟", domesticListed: "是", domesticDate: "2024年7月22日" },
           langs: {
             zh: {
               title: "FARAPULSE脉冲电场消融系统",
-              description: "适用于心脏组织的消融，治疗阵发性房颤(PAF)",
+              description: "适用于心脏组织的消融，治疗阵发性房颤 (PAF)。",
               specialty: "血液科",
             },
             ja: {
               title: "FARAPULSE パルスフィールドアブレーションシステム",
               description:
-                "心臓組織をアブレーションし、発作性心房細動（PAF）を治療する。",
+                "心臓組織のアブレーションに適応し、発作性心房細動（PAF）の治療に使用する。",
               specialty: "血液科",
             },
             en: {
               title: "FARAPULSE Pulsed Field Ablation System",
               description:
-                "For ablation of cardiac tissue to treat paroxysmal atrial fibrillation, PAF.",
+                "Indicated for ablation of cardiac tissue for the treatment of paroxysmal atrial fibrillation (PAF).",
               specialty: "Hematology",
             },
           },
@@ -9983,6 +10273,7 @@
           id: 353,
           category: "device",
           number: 148,
+          info: { department: "心血管内科", spec: "18-3356", approvalRegion: "美国", domesticListed: "是", domesticDate: "2024年4月28日" },
           langs: {
             zh: {
               title: "可调控型导管鞘",
@@ -10036,6 +10327,7 @@
           id: 355,
           category: "device",
           number: 150,
+          info: { department: "心血管内科", spec: "1台/盒", approvalRegion: "加拿大", approvalDate: "2024-03-19" },
           langs: {
             zh: {
               title: "射频发生器",
@@ -10061,6 +10353,7 @@
           id: 356,
           category: "device",
           number: 151,
+          info: { spec: "1套/盒", approvalDate: "2024-03-19" },
           langs: {
             zh: {
               title: "左心耳封堵射频导丝",
@@ -10239,6 +10532,7 @@
           id: 363,
           category: "device",
           number: 158,
+          info: { department: "心血管内科", spec: "1个/盒", approvalRegion: "美国、欧盟", approvalDate: "2025年03月14日" },
           langs: {
             zh: {
               title: "经导管主动脉瓣膜系统Medtronic Evolut FX System",
@@ -10264,6 +10558,7 @@
           id: 364,
           category: "device",
           number: 159,
+          info: { department: "心血管内科", spec: "1套/盒", approvalRegion: "美国", approvalDate: "2025年03月14日" },
           langs: {
             zh: {
               title: "植入式双腔无导线起搏系统AveirTM DR Leadless System",
@@ -10843,6 +11138,7 @@
           id: 387,
           category: "device",
           number: 182,
+          info: { department: "心内科", spec: "发生器：RDN017 导管：RDN016", approvalRegion: "美国", domesticDate: "2024-4-30" },
           langs: {
             zh: {
               title:
@@ -10854,14 +11150,14 @@
               title:
                 "Symplicity G3 Renal Denervation RF Generator および Symplicity Spyral Multi-Electrode Renal Denervation Catheter",
               description:
-                "腎交感神経高周波アブレーション、難治性高血圧の治療。",
+                "腎動脈交感神経高周波アブレーション（難治性高血圧の治療）。",
               specialty: "循環器内科",
             },
             en: {
               title:
                 "Symplicity G3 Renal Denervation RF Generator and Symplicity Spyral Multi-Electrode Renal Denervation Catheter",
               description:
-                "Renal sympathetic denervation by radiofrequency ablation, for treatment of resistant hypertension.",
+                "Renal artery sympathetic denervation by radiofrequency ablation (for treatment of resistant hypertension).",
               specialty: "Cardiology",
             },
           },
@@ -10870,6 +11166,7 @@
           id: 388,
           category: "device",
           number: 183,
+          info: { department: "心内科", spec: "M004RH34520 M004RH23250 M004RH23260 M004RH34510 M004RA63010 M004RARC030 M004RH34530 M004RA34530", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "Rhythmia HDx 心脏电生理三维标测系统零件",
@@ -10896,6 +11193,7 @@
           id: 389,
           category: "device",
           number: 184,
+          info: { department: "心内科", spec: "M004ERFSDS96200", approvalRegion: "欧盟", domesticListed: "是", domesticDate: "2024年11月25日 适用范围：IntellaNav StablePoint导管适用于需要基于导管进行心脏电生理标测（刺激和记录）的患者，当与射频消融仪联合使用时，可用于心脏消融。" },
           langs: {
             zh: {
               title: "磁定位压力感应盐水灌注消融导管",
@@ -10923,6 +11221,7 @@
           id: 390,
           category: "device",
           number: 185,
+          info: { department: "心内科", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "经导管植入式无导线起搏系统",
@@ -10949,6 +11248,7 @@
           id: 391,
           category: "device",
           number: 186,
+          info: { department: "心内科", spec: "24970A", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "程控仪底座",
@@ -10999,6 +11299,7 @@
           id: 393,
           category: "device",
           number: 188,
+          info: { department: "心内科", spec: "24967", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "程控仪患者连接器",
@@ -11024,6 +11325,7 @@
           id: 394,
           category: "device",
           number: 189,
+          info: { department: "心内科", spec: "D00U022", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "程控仪 AV2 应用程序",
@@ -11049,6 +11351,7 @@
           id: 395,
           category: "device",
           number: 190,
+          info: { department: "心血管内科", spec: "AC-019", approvalRegion: "美国", approvalDate: "2025年01月06日" },
           langs: {
             zh: {
               title: "手持式心电图仪远程监护设备系统",
@@ -11075,6 +11378,7 @@
           id: 396,
           category: "device",
           number: 191,
+          info: { department: "消化内科", spec: "621-011/3ml 621-012/5ml", approvalRegion: "日本" },
           langs: {
             zh: {
               title:
@@ -11229,6 +11533,7 @@
           id: 402,
           category: "device",
           number: 197,
+          info: { department: "外科", spec: "Leonardo Mini PDT", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "Leonardo Mini光动力仪",
@@ -11254,6 +11559,7 @@
           id: 403,
           category: "device",
           number: 198,
+          info: { department: "外科", spec: "B-4800", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "胃内球囊系统\nORBERA Intragastric Balloon",
@@ -11279,6 +11585,7 @@
           id: 404,
           category: "device",
           number: 199,
+          info: { department: "外科", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "Da Vinci SP 单通道内窥镜手术系统",
@@ -11354,6 +11661,7 @@
           id: 407,
           category: "device",
           number: 202,
+          info: { department: "神经外科", spec: "1套/盒", approvalRegion: "美国", approvalDate: "2025年03月25日" },
           langs: {
             zh: {
               title: "脑深部刺激患者无线充电器\nRecharger Kit",
@@ -11380,6 +11688,7 @@
           id: 408,
           category: "device",
           number: 203,
+          info: { department: "神经外科", spec: "1套/盒", approvalRegion: "美国", approvalDate: "2025年03月25日" },
           langs: {
             zh: {
               title: "患者程控仪Handset with Communicator",
@@ -11405,6 +11714,7 @@
           id: 409,
           category: "device",
           number: 204,
+          info: { department: "神经外科", approvalRegion: "美国", approvalDate: "2025年03月25日" },
           langs: {
             zh: {
               title:
@@ -11433,6 +11743,7 @@
           id: 410,
           category: "device",
           number: 205,
+          info: { department: "神经外科", spec: "1台/盒", approvalRegion: "美国", approvalDate: "2025年03月25日" },
           langs: {
             zh: {
               title: "植入式可充电脑深部神经刺激器\nPerceptTM RC",
@@ -11484,6 +11795,7 @@
           id: 412,
           category: "device",
           number: 207,
+          info: { department: "神经内科", spec: "FGD000075", approvalRegion: "以色列" },
           langs: {
             zh: {
               title: "Nerivio\n远程神经调控低频电刺激仪",
@@ -11535,6 +11847,7 @@
           id: 414,
           category: "device",
           number: 209,
+          info: { department: "烧伤科", spec: "G5XL0000、G4L00000、B1051000", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "人工真皮\nPermeaderm",
@@ -11560,6 +11873,7 @@
           id: 415,
           category: "device",
           number: 210,
+          info: { department: "烧伤科", approvalRegion: "欧盟", approvalDate: "2025年09月26日" },
           langs: {
             zh: {
               title: "普拉索玛冷等离子体治疗系统\nPLASOMA System",
@@ -11585,6 +11899,7 @@
           id: 416,
           category: "device",
           number: 211,
+          info: { department: "烧伤科", spec: "2CC", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "VERGENIX FLOWABLE GEL\nI型重组人胶原蛋白",
@@ -11638,6 +11953,7 @@
           id: 418,
           category: "device",
           number: 213,
+          info: { department: "普外科", spec: "1个/盒", approvalRegion: "美国", domesticListed: "是", domesticDate: "2025-3-14" },
           langs: {
             zh: {
               title: "ClotTriever Thrombectomy\nSystem\n外周静脉取栓支架系统",
@@ -11720,6 +12036,7 @@
           id: 421,
           category: "device",
           number: 216,
+          info: { department: "普外科", spec: "O350", approvalRegion: "美国", approvalDate: "2025年06月25日" },
           langs: {
             zh: {
               title:
@@ -11748,6 +12065,7 @@
           id: 422,
           category: "device",
           number: 217,
+          info: { department: "普外科", spec: "1 支/盒", approvalRegion: "欧盟", approvalDate: "2025年09月29日" },
           langs: {
             zh: {
               title:
@@ -11774,6 +12092,7 @@
           id: 423,
           category: "device",
           number: 218,
+          info: { department: "普外科", approvalDate: "2025年07月31日" },
           langs: {
             zh: {
               title: "NESKEEP放射线治疗用可吸收性组织间隔物",
@@ -11799,6 +12118,7 @@
           id: 424,
           category: "device",
           number: 219,
+          info: { department: "普外科", spec: "1套/盒", approvalRegion: "欧盟", approvalDate: "2025年12月15日" },
           langs: {
             zh: {
               title: "血管内锚定系统Heli-FX\nEndoAnchor System",
@@ -11824,6 +12144,7 @@
           id: 425,
           category: "device",
           number: 220,
+          info: { department: "普外科", approvalRegion: "美国", approvalDate: "2026年5月13日" },
           langs: {
             zh: {
               title: "生物人工血管Artegraft Collagen\nVascular Graft",
@@ -11849,6 +12170,7 @@
           id: 426,
           category: "device",
           number: 221,
+          info: { department: "普外科", spec: "Sonovein", approvalRegion: "欧盟", landingDate: "2026年5月13日" },
           langs: {
             zh: {
               title:
@@ -11859,13 +12181,13 @@
             ja: {
               title:
                 "High Intensity Focused Ultrasound (HIFU) Device 高強度集束超音波治療システム",
-              description: "表在静脈逆流患者の血管凝固に使用する。",
+              description: "表在静脈逆流患者の血管の凝固に用いる。",
               specialty: "一般外科",
             },
             en: {
               title: "High Intensity Focused Ultrasound (HIFU) Device",
               description:
-                "For coagulation of vessels in patients with superficial venous reflux.",
+                "Used for coagulation of vessels in patients with superficial venous reflux.",
               specialty: "General Surgery",
             },
           },
@@ -11874,6 +12196,7 @@
           id: 427,
           category: "device",
           number: 222,
+          info: { department: "普外科", spec: "EPack", approvalRegion: "欧盟", landingDate: "2026年5月13日" },
           langs: {
             zh: {
               title: "一次性冷却系统EPack",
@@ -11899,6 +12222,7 @@
           id: 428,
           category: "device",
           number: 223,
+          info: { department: "普外科", spec: "L300", approvalRegion: "美国", approvalDate: "2025年06月25日" },
           langs: {
             zh: {
               title: "外周血管内光学相干断层成像定向斑块切除系统Lightbox 3",
@@ -12049,6 +12373,7 @@
           id: 434,
           category: "device",
           number: 229,
+          info: { department: "皮肤科", approvalDate: "2025年08月22日" },
           langs: {
             zh: {
               title:
@@ -12066,7 +12391,7 @@
               title:
                 "Biofibre 4.0 & Medicap High Density 4.0 Biocompatible Artificial Fiber Hair",
               description:
-                "For treatment of female and male baldness, alopecia.",
+                "Indicated for the treatment of female and male alopecia.",
               specialty: "Dermatology",
             },
           },
@@ -12075,21 +12400,22 @@
           id: 435,
           category: "device",
           number: 230,
+          info: { department: "皮肤科", approvalDate: "2025年08月22日" },
           langs: {
             zh: {
               title:
                 "美迪凯自动生物纤维毛发装置\nAUTOMATIC BIOFIBRE HAIR\nDEVICE",
-              description: "用于自动生物纤维®植入物",
+              description: "用于自动生物纤维&reg;植入物",
               specialty: "皮肤科",
             },
             ja: {
               title: "AUTOMATIC BIOFIBRE HAIR DEVICE",
-              description: "Biofibre®自動植込みに使用する。",
+              description: "自動生物繊維®インプラント（人工毛髪の自動植込み）に用いる。",
               specialty: "皮膚科",
             },
             en: {
               title: "AUTOMATIC BIOFIBRE HAIR DEVICE",
-              description: "For automatic Biofibre® implantation.",
+              description: "Used for automatic bio-fiber® implantation.",
               specialty: "Dermatology",
             },
           },
@@ -12098,6 +12424,7 @@
           id: 436,
           category: "device",
           number: 231,
+          info: { department: "皮肤科", approvalDate: "2025年08月22日" },
           langs: {
             zh: {
               title:
@@ -12107,7 +12434,7 @@
             },
             ja: {
               title: "Implanter Regolabile - Adjustable Implanter",
-              description: "Medicap S.r.l製人工毛髪の植込みにのみ使用する。",
+              description: "Medicap S.r.l.製人工毛髪の植込みにのみ使用する。",
               specialty: "皮膚科",
             },
             en: {
@@ -12122,16 +12449,17 @@
           id: 437,
           category: "device",
           number: 232,
+          info: { department: "皮肤科", approvalDate: "2025年08月22日" },
           langs: {
             zh: {
               title:
                 "美迪凯可调式植入器用针（无菌）\nAgo per Implanter Regolabile\nSterile,Needle for",
-              description: "用于与 Medicap S.r.l生产的可调节植入器配合使用",
+              description: "用于与 Medicap S.r.l 生产的可调节植入器配合使用",
               specialty: "皮肤科",
             },
             ja: {
               title: "可調式インプランター用滅菌針",
-              description: "Medicap S.r.l製可調式インプランターと併用する。",
+              description: "Medicap S.r.l.製可調式インプランターと併用する。",
               specialty: "皮膚科",
             },
             en: {
@@ -12146,6 +12474,7 @@
           id: 438,
           category: "device",
           number: 233,
+          info: { department: "皮肤科", approvalRegion: "欧盟", landingDate: "2026年1月15日" },
           langs: {
             zh: {
               title: "银屑病凝胶",
@@ -12171,6 +12500,7 @@
           id: 439,
           category: "device",
           number: 234,
+          info: { department: "皮肤科", spec: "Hairstetics Zigzag 12", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
@@ -12186,7 +12516,7 @@
             en: {
               title:
                 "Hairstetics™ Non-Absorbable Polyamide Hair Implant Device",
-              description: "For female patients with androgenetic alopecia.",
+              description: "Indicated for female patients with androgenetic alopecia.",
               specialty: "Dermatology",
             },
           },
@@ -12195,6 +12525,7 @@
           id: 440,
           category: "device",
           number: 235,
+          info: { department: "内科", spec: "N/A", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "Cardiospec体外冲击波心血管治疗\n系统",
@@ -12221,6 +12552,7 @@
           id: 441,
           category: "device",
           number: 236,
+          info: { department: "内科", approvalRegion: "欧盟", approvalDate: "2025年10月22日" },
           langs: {
             zh: {
               title: "皮肤荧光血管循环检测仪\nAngioExpert",
@@ -12247,6 +12579,7 @@
           id: 442,
           category: "device",
           number: 237,
+          info: { department: "内科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "Plenity\n纤维素水凝胶胶囊",
@@ -12296,6 +12629,7 @@
           id: 444,
           category: "device",
           number: 239,
+          info: { department: "内分泌科", spec: "FreeStyle Libre 2", approvalRegion: "欧盟", domesticListed: "是", domesticDate: "2023年11月22日 适应症：FreeStyle Libre 2 持续葡萄糖监测系统扫描检测仪（以下简称“扫描检测仪”）与FreeStyle Libre2持续葡萄糖监测系统传感器（以下简称“传感器”）配合使用时，适用于测量糖尿病患者（4 周岁及以上，包括孕妇）的组织间液葡萄糖水平。扫描检测仪和传感器旨在替代糖尿病自我管理（包括胰岛素注射）中的血糖测试。所适用的儿童（4-12 周岁）仅限于由至少年" },
           langs: {
             zh: {
               title:
@@ -12350,6 +12684,7 @@
           id: 446,
           category: "device",
           number: 241,
+          info: { department: "肿瘤科", spec: "SO-2101", approvalRegion: "美国", domesticListed: "是", domesticDate: "2024年7月24日" },
           langs: {
             zh: {
               title: "一次性使用可吸收隔离水凝胶\nSpaceOAR System",
@@ -12375,6 +12710,7 @@
           id: 447,
           category: "device",
           number: 242,
+          info: { department: "泌尿外科", spec: "Uro-G 1520", approvalRegion: "美国", domesticListed: "是", domesticDate: "2023年12月25日" },
           langs: {
             zh: {
               title: "一次性使用电子膀胱镜(及电子内窥镜图像处理器)",
@@ -12384,14 +12720,14 @@
             ja: {
               title: "単回使用電子膀胱鏡および電子内視鏡画像処理装置",
               description:
-                "診断的膀胱鏡および膀胱・尿道内への灌流液注入に使用する。",
+                "診断的膀胱鏡検査および膀胱・尿道への灌流液注入に使用する。",
               specialty: "泌尿器科",
             },
             en: {
               title:
                 "Single-Use Electronic Cystoscope and Electronic Endoscopic Image Processor",
               description:
-                "For diagnostic cystoscopy and irrigation/instillation of fluid into the bladder and urethra.",
+                "For diagnostic cystoscopy and irrigation of fluid into the bladder and urethra.",
               specialty: "Urology",
             },
           },
@@ -12475,22 +12811,23 @@
           id: 451,
           category: "device",
           number: 246,
+          info: { department: "泌尿外科", spec: "1个/盒", approvalDate: "2025年08月12日" },
           langs: {
             zh: {
               title: "人工海绵体及配件(带抗生素涂层)",
-              description: "适用于治疗慢性、器质性男性勃起机能障碍（阳痿）。",
+              description: "适用于治疗慢性 、器质性男性勃起机能障碍 (阳痿 ) 。",
               specialty: "泌尿外科",
             },
             ja: {
               title: "抗菌薬コーティング付き陰茎プロテーゼおよび付属品",
               description:
-                "慢性・器質性男性勃起機能障害、インポテンス、の治療に適応する。",
+                "慢性・器質性の男性勃起機能障害（インポテンス）の治療に適応する。",
               specialty: "泌尿器科",
             },
             en: {
               title: "Penile Prosthesis and Accessories, Antibiotic-Coated",
               description:
-                "For treatment of chronic organic male erectile dysfunction, impotence.",
+                "Indicated for the treatment of chronic organic male erectile dysfunction (impotence).",
               specialty: "Urology",
             },
           },
@@ -12499,6 +12836,7 @@
           id: 452,
           category: "device",
           number: 247,
+          info: { department: "泌尿外科", approvalRegion: "欧盟", approvalDate: "2026年1月15日" },
           langs: {
             zh: {
               title: "肾脏冲击波治疗设备",
@@ -12524,6 +12862,7 @@
           id: 453,
           category: "device",
           number: 248,
+          info: { department: "泌尿外科", approvalRegion: "欧盟", approvalDate: "2026年5月22日" },
           langs: {
             zh: {
               title: "射频治疗勃起障碍设备Vertica\nErectile Dysfunction device",
@@ -12574,6 +12913,7 @@
           id: 456,
           category: "device",
           number: 250,
+          info: { department: "牙科", spec: "1×0.15ml 1×0.3 ml 1×0.7 ml 5×0.15 ml", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "牙周组织再生诱导材料",
@@ -12599,6 +12939,7 @@
           id: 457,
           category: "device",
           number: 251,
+          info: { department: "牙科", spec: "5×0.6 ml", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "牙齿表面处理凝胶",
@@ -12624,6 +12965,7 @@
           id: 458,
           category: "device",
           number: 252,
+          info: { department: "口腔科", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "牙科种植体",
@@ -12674,6 +13016,7 @@
           id: 460,
           category: "device",
           number: 254,
+          info: { department: "口腔科", spec: "AGM-115-S", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "种植修复器材",
@@ -12750,6 +13093,7 @@
           id: 463,
           category: "device",
           number: 257,
+          info: { department: "口腔科", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "Infinix Flowable Composite\nInfinix 可流动复合材料",
@@ -12828,6 +13172,7 @@
           id: 466,
           category: "device",
           number: 260,
+          info: { department: "口腔科", approvalRegion: "欧盟", domesticListed: "是", domesticDate: "2024-07-23" },
           langs: {
             zh: {
               title: "Treatment Center\n牙科综合治疗台",
@@ -13445,6 +13790,7 @@
           id: 491,
           category: "device",
           number: 285,
+          info: { department: "康复科", spec: "BACK 1S", approvalRegion: "韩国" },
           langs: {
             zh: {
               title: "高频短波治疗仪",
@@ -13833,6 +14179,7 @@
           id: 507,
           category: "device",
           number: 301,
+          info: { department: "介入放射科", approvalRegion: "美国", landingDate: "2024年8月21日" },
           langs: {
             zh: {
               title: "液态栓塞系统Lava Liquid Embolic\nSystem(Lava LES)",
@@ -13841,7 +14188,7 @@
             },
             ja: {
               title: "液体塞栓システム Lava Liquid Embolic System (Lava LES)",
-              description: "末梢血管系の動脈出血に対する塞栓治療に適用する。",
+              description: "末梢血管系の動脈出血に対する塞栓治療に適応する。",
               specialty: "インターベンショナルラジオロジー",
             },
             en: {
@@ -13856,6 +14203,7 @@
           id: 508,
           category: "device",
           number: 302,
+          info: { department: "介入放射学", approvalRegion: "美国", approvalDate: "2024 年 9 月 23日" },
           langs: {
             zh: {
               title: "Auryon Laser System\n离子激光斑块切除系统",
@@ -13881,6 +14229,7 @@
           id: 509,
           category: "device",
           number: 303,
+          info: { department: "介入放射学", spec: "XM-4002-H000", approvalRegion: "美国", approvalDate: "2024 年 9 月 24 日" },
           langs: {
             zh: {
               title: "一次性使用离子激光光纤导管\nAuryon Atherectomy Catheter",
@@ -13908,6 +14257,7 @@
           id: 510,
           category: "device",
           number: 304,
+          info: { department: "呼吸内科", spec: "MON-000006 MBR-000014 MBR-000015 210-000344-00 MBR-000211-A MBR-000016 MBR-000017 MBR-000020 MBR-000218 MON-000707 MON-000705 MON-000706", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "电子支气管内窥镜导航控制系统\n（Monarch平台）",
@@ -13919,14 +14269,14 @@
               title:
                 "電子気管支鏡ナビゲーション制御システム\n（Monarchプラットフォーム）",
               description:
-                "診断・治療手技中に患者気道の気管支鏡による可視化およびアクセスを提供することを目的とする。",
+                "診断および治療手技において、患者気道の気管支鏡的可視化とアプローチを提供する。",
               specialty: "呼吸器内科",
             },
             en: {
               title:
                 "Electronic Bronchoscopic Navigation and Control System\n(Monarch Platform)",
               description:
-                "The product is intended to provide bronchoscopic visualization of and access to the patient's airways during diagnostic and therapeutic procedures.",
+                "Intended to provide bronchoscopic visualization of and access to the patient's airway during diagnostic and therapeutic procedures.",
               specialty: "Respiratory Medicine",
             },
           },
@@ -13935,6 +14285,7 @@
           id: 511,
           category: "device",
           number: 305,
+          info: { department: "呼吸内科", spec: "1个/盒", approvalRegion: "日本", approvalDate: "2026年2月11日" },
           langs: {
             zh: {
               title: "PDT 半导体激光器",
@@ -13960,6 +14311,7 @@
           id: 512,
           category: "device",
           number: 306,
+          info: { department: "呼吸科", spec: "ALDS", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "Ambulatory Lung Diagnosis\nSystem\n便携肺功能诊断系统",
@@ -14058,6 +14410,7 @@
           id: 516,
           category: "device",
           number: 310,
+          info: { department: "骨科", spec: "BCT-HA-3", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "富血小板血浆透明质酸钠复合溶液制备用套装",
@@ -14068,14 +14421,14 @@
             ja: {
               title: "多血小板血漿・ヒアルロン酸ナトリウム複合溶液調製キット",
               description:
-                "調製後、膝関節内注射に使用し、関節痛を治療して機能を改善する。",
+                "調製後の製品を関節腔内に注射し、関節痛の治療と機能改善に用いる。",
               specialty: "整形外科",
             },
             en: {
               title:
                 "Kit for Preparing Platelet-Rich Plasma/Sodium Hyaluronate Composite Solution",
               description:
-                "After preparation, the product is used for intra-articular injection into the knee to treat joint pain and improve function.",
+                "The prepared product is injected intra-articularly to treat joint pain and improve function.",
               specialty: "Orthopedics",
             },
           },
@@ -14084,6 +14437,7 @@
           id: 517,
           category: "device",
           number: 311,
+          info: { department: "骨科", spec: "A-CP-HA-3", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title: "富血小板血浆透明质酸钠复合溶液制备用套装",
@@ -14094,14 +14448,14 @@
             ja: {
               title: "多血小板血漿・ヒアルロン酸ナトリウム複合溶液調製キット",
               description:
-                "調製後、膝関節内注射に使用し、関節痛を治療して機能を改善する。",
+                "調製後の製品を関節腔内に注射し、関節痛の治療と機能改善に用いる。",
               specialty: "整形外科",
             },
             en: {
               title:
                 "Kit for Preparing Platelet-Rich Plasma/Sodium Hyaluronate Composite Solution",
               description:
-                "After preparation, the product is used for intra-articular injection into the knee to treat joint pain and improve function.",
+                "The prepared product is injected intra-articularly to treat joint pain and improve function.",
               specialty: "Orthopedics",
             },
           },
@@ -14162,6 +14516,7 @@
           id: 520,
           category: "device",
           number: 314,
+          info: { department: "骨科", spec: "1套/盒", approvalRegion: "美国", approvalDate: "2024年11月26日" },
           langs: {
             zh: {
               title:
@@ -14174,13 +14529,13 @@
               title:
                 "Marrow Cellution Bone Marrow Aspiration Needle\n骨髄穿刺吸引針",
               description:
-                "標準的なプランジャー式シリンジを使用して骨髄または自家血液を吸引するために使用する。",
+                "標準ピストン式シリンジを用いて骨髄または自己血を吸引するために使用する。",
               specialty: "整形外科",
             },
             en: {
               title: "Marrow Cellution Bone Marrow Aspiration Needle",
               description:
-                "The bone marrow aspiration needle is intended for aspiration of bone marrow or autologous blood using a standard plunger syringe.",
+                "Used to aspirate bone marrow or autologous blood using a standard piston syringe.",
               specialty: "Orthopedics",
             },
           },
@@ -14189,6 +14544,7 @@
           id: 521,
           category: "device",
           number: 315,
+          info: { department: "骨科", spec: "2×2cm", approvalRegion: "意大利", approvalDate: "2024年11月26日" },
           langs: {
             zh: {
               title: "Hyalofast\n透明质酸软骨修复支架",
@@ -14214,6 +14570,7 @@
           id: 522,
           category: "device",
           number: 316,
+          info: { department: "骨科", spec: "1台", approvalRegion: "欧盟", approvalDate: "2025年03月14日" },
           langs: {
             zh: {
               title: "Limfa 低频磁疗装置Limfa Therapy",
@@ -14240,6 +14597,7 @@
           id: 523,
           category: "device",
           number: 317,
+          info: { department: "骨科", spec: "800-3000ST nStride、800-1003A GPS III、800-0505A GPS III Mini", approvalRegion: "美国" },
           langs: {
             zh: {
               title:
@@ -14268,6 +14626,7 @@
           id: 524,
           category: "device",
           number: 318,
+          info: { department: "骨科", approvalRegion: "欧盟", approvalDate: "2025年08月11日" },
           langs: {
             zh: {
               title: "自体脂肪微颗粒处理装置LIPOGEMS\nPROCESS DEVICE",
@@ -14294,6 +14653,7 @@
           id: 525,
           category: "device",
           number: 319,
+          info: { department: "骨科", spec: "1套/盒", approvalRegion: "欧盟", approvalDate: "2025年09月29日" },
           langs: {
             zh: {
               title:
@@ -14350,6 +14710,7 @@
           id: 527,
           category: "device",
           number: 321,
+          info: { department: "骨科", spec: "1块/盒", approvalRegion: "欧盟", approvalDate: "2026年5月22日" },
           langs: {
             zh: {
               title: "超声引导松解刀套件(腕管)Carpal\nTunnelSono Instruments",
@@ -14402,6 +14763,7 @@
           id: 529,
           category: "device",
           number: 323,
+          info: { department: "骨科", spec: "1套/盒", approvalRegion: "欧盟", approvalDate: "2026年6月24日" },
           langs: {
             zh: {
               title: "光能消融导管套件（PLDD Kit）",
@@ -14427,6 +14789,7 @@
           id: 530,
           category: "device",
           number: 324,
+          info: { department: "骨科", spec: "1套/1箱/产品", approvalRegion: "欧盟", approvalDate: "2026年6月24日" },
           langs: {
             zh: {
               title: "半导体激光治疗仪（Leonardo）",
@@ -14452,6 +14815,7 @@
           id: 531,
           category: "device",
           number: 325,
+          info: { department: "骨科", spec: "1双/盒", approvalRegion: "欧盟", approvalDate: "2026年07月29日" },
           langs: {
             zh: {
               title: "矫形器",
@@ -14477,6 +14841,7 @@
           id: 532,
           category: "device",
           number: 326,
+          info: { department: "骨科", spec: "2ml/支", approvalRegion: "欧盟", approvalDate: "2025年4月28日" },
           langs: {
             zh: {
               title: "无菌可吸收\n透明质酸关节内植入凝胶",
@@ -14548,22 +14913,23 @@
           id: 535,
           category: "device",
           number: 329,
+          info: { department: "检验科", spec: "M00542430", approvalRegion: "美国", domesticListed: "是" },
           langs: {
             zh: {
               title: "数字成像控制器 EXALT\nCONTROLLER",
-              description: "拟用于配合成像导管用于内窥镜诊断、治疗和影像探查。",
+              description: "EXALT 数字成像控制器可与波士顿科学公司内窥镜配合使用，进行内窥镜诊断、治疗及视频观察。",
               specialty: "肝胆外科",
             },
             ja: {
               title: "デジタルイメージングコントローラー EXALT CONTROLLER",
               description:
-                "イメージングカテーテルと組み合わせ、内視鏡診断、治療および画像観察に使用することを目的とする。",
+                "EXALTデジタルイメージングコントローラは、ボストン・サイエンティフィック社の内視鏡と併用し、内視鏡診断・治療およびビデオ観察に使用する。",
               specialty: "肝胆道外科",
             },
             en: {
               title: "Digital Imaging Controller EXALT CONTROLLER",
               description:
-                "Intended for use with an imaging catheter for endoscopic diagnosis, treatment, and imaging exploration.",
+                "The EXALT Digital Imaging Controller is used with Boston Scientific endoscopes for endoscopic diagnosis, therapy, and video observation.",
               specialty: "Hepatobiliary Surgery",
             },
           },
@@ -14572,6 +14938,7 @@
           id: 536,
           category: "device",
           number: 330,
+          info: { department: "肝胆外科", approvalRegion: "美国", approvalDate: "2025年10月22日" },
           langs: {
             zh: {
               title:
@@ -14600,24 +14967,25 @@
           id: 537,
           category: "device",
           number: 331,
+          info: { department: "核医学科", spec: "（1）TheraSphereY-90 玻璃微球量瓶（2）TheraSphereY-90 玻璃微球输入装置（3）TheraSphereY-90 玻璃微球输入附件盒", approvalRegion: "欧盟" },
           langs: {
             zh: {
               title:
                 "TheraSphere Y-90\n玻璃微球系统\n(TheraSphere Y-90 Glass\nMicrospere System)",
-              description: "TheraSphere\n用于治疗肝脏\n恶性肿瘤",
+              description: "用于治疗肝脏恶性肿瘤。",
               specialty: "肝胆外科",
             },
             ja: {
               title:
                 "TheraSphere Y-90 ガラスマイクロスフィアシステム\n(TheraSphere Y-90 Glass Microspere System)",
-              description: "TheraSphereは肝臓悪性腫瘍の治療に使用する。",
+              description: "肝悪性腫瘍の治療に用いる。",
               specialty: "肝胆道外科",
             },
             en: {
               title:
                 "TheraSphere Y-90 Glass Microsphere System\n(TheraSphere Y-90 Glass Microspere System)",
               description:
-                "TheraSphere is used to treat malignant liver tumors.",
+                "For treatment of liver malignancies.",
               specialty: "Hepatobiliary Surgery",
             },
           },
@@ -14626,6 +14994,7 @@
           id: 538,
           category: "device",
           number: 332,
+          info: { department: "核医学科", approvalDate: "2025年08月22日" },
           langs: {
             zh: {
               title:
@@ -14654,6 +15023,7 @@
           id: 539,
           category: "device",
           number: 333,
+          info: { department: "肿瘤", spec: "钇[90Y]树脂微球：SIR-Y001 输送套件：SIR-D001 V-瓶：SIR-V001 V-瓶架：SIR-H001", approvalRegion: "澳大利亚", domesticListed: "是" },
           langs: {
             zh: {
               title:
@@ -14734,6 +15104,7 @@
           id: 542,
           category: "device",
           number: 336,
+          info: { department: "耳鼻咽喉科", approvalRegion: "美国", approvalDate: "2025年01月26日" },
           langs: {
             zh: {
               title: "人工耳蜗植入术中检测系统\nNucleus® SmartNav System",
@@ -14813,6 +15184,7 @@
           id: 545,
           category: "device",
           number: 339,
+          info: { department: "耳鼻咽喉科", approvalRegion: "欧盟", approvalDate: "2025年01月26日" },
           langs: {
             zh: {
               title: "科利耳® Nucleus™ Kanso™ 3\nNexa™ 声音处理器",
@@ -14838,6 +15210,7 @@
           id: 546,
           category: "device",
           number: 340,
+          info: { department: "耳鼻咽喉科", approvalRegion: "欧盟", approvalDate: "2025年01月26日" },
           langs: {
             zh: {
               title: "Cochlear™ 手术用处理器",
@@ -14988,6 +15361,7 @@
           id: 552,
           category: "device",
           number: 346,
+          info: { department: "耳鼻喉科", spec: "CI-1601-04", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "人工耳蜗植入体及相关配件",
@@ -15010,20 +15384,21 @@
           id: 553,
           category: "device",
           number: 347,
+          info: { department: "耳鼻喉科", spec: "CI-1418/CI-4348/CI-4349/CI-4507", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "人工耳蜗 手术工具包",
-              description: "/",
+              description: "人工耳蜗相关配件",
               specialty: "耳鼻咽喉科",
             },
             ja: {
               title: "人工内耳 手術用ツールキット",
-              description: "/",
+              description: "人工内耳用手術ツールキット。",
               specialty: "耳鼻咽喉科",
             },
             en: {
               title: "Cochlear Implant Surgical Tool Kit",
-              description: "/",
+              description: "Surgical toolkit for cochlear implants.",
               specialty: "Otorhinolaryngology",
             },
           },
@@ -15082,6 +15457,7 @@
           id: 556,
           category: "device",
           number: 350,
+          info: { department: "耳鼻喉科", spec: "Mi1200 SYNCHRONY ABI", approvalRegion: "奥地利" },
           langs: {
             zh: {
               title: "听觉脑干植入体",
@@ -15090,13 +15466,13 @@
             },
             ja: {
               title: "聴性脳幹インプラント",
-              description: "人工内耳が無効な最重度難聴および全聾。",
+              description: "人工内耳では効果が得られない極重度難聴および全ろうに適応する。",
               specialty: "耳鼻咽喉科",
             },
             en: {
               title: "Auditory Brainstem Implant",
               description:
-                "For profound hearing loss and total deafness where cochlear implantation is ineffective.",
+                "Indicated for profound hearing loss and total deafness where cochlear implants are ineffective.",
               specialty: "Otorhinolaryngology",
             },
           },
@@ -15155,6 +15531,7 @@
           id: 559,
           category: "device",
           number: 353,
+          info: { department: "耳鼻喉科", spec: "CP1150", approvalRegion: "澳大利亚" },
           langs: {
             zh: {
               title:
@@ -15171,7 +15548,7 @@
             en: {
               title:
                 "CP1150 (Kanso®2) Sound Processor\nOther Related Accessories: CP1150 Sound Processor Customer Sound Pro fitting software; fitting connection cable between CP1150 sound processor and fitting equipment; wireless connection POD between CP1150 sound processor and fitting equipment for fitting; CP1150 sound processor magnet; CP1150 sound processor charger, charger power cable and charger power plug; CP1150 sound processor portable charger and charger charging cable; CP1150 sound processor microphone cover; CP1150 sound processor safety line; CP1150 sound processor microphone cover; CP1150 sound processor pressure cushion; CP1150 sound processor headband; CP1150 sound processor power-plug compartment cover; CP1150 sound processor safety hair clip; CP1150 sound processor remote control; CP1150 sound processor wireless microphone.",
-              description: "Sound processor-related equipment.",
+              description: "Sound processor related accessories.",
               specialty: "Otorhinolaryngology",
             },
           },
@@ -15180,6 +15557,7 @@
           id: 560,
           category: "device",
           number: 354,
+          info: { department: "耳鼻喉科", spec: "骨桥植入体：BCI 602 Kit,声音处理器：SAMBA 2 BB", approvalRegion: "奥地利" },
           langs: {
             zh: {
               title: "骨桥植入系统 Implantable Hearing\nProsthesis System",
@@ -15206,6 +15584,7 @@
           id: 561,
           category: "device",
           number: 355,
+          info: { department: "耳鼻喉科", spec: "CI-5293-150 CI-5294-150 CI-5295-150 CI-5293-120 CI-5294-120 CI-5295-120", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "声音处理器及其配件、软件、手术工具包",
@@ -15233,6 +15612,7 @@
           id: 562,
           category: "device",
           number: 356,
+          info: { department: "耳鼻喉科", spec: "RONDO3", approvalRegion: "奥地利" },
           langs: {
             zh: {
               title: "RONDO3声音处理器",
@@ -15283,6 +15663,7 @@
           id: 564,
           category: "device",
           number: 358,
+          info: { department: "耳鼻喉科", approvalRegion: "澳大利亚", domesticListed: "是" },
           langs: {
             zh: {
               title:
@@ -15311,25 +15692,26 @@
           id: 565,
           category: "device",
           number: 359,
+          info: { department: "耳鼻喉科", spec: "型号：P1934845、P1749689、Z586148、Z60764、P1840353、P778826、B454122、P1631530、P1749653、N94527、P1878176、P1840394、P1939343、P1901106、Z586158、P1997763、P778452、P17", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "Nucleus 8 Sound Processor\nNucleus 8人工耳蜗声音处理器",
               description:
-                "Nucleus 8 声音处理器适用于植入相容科利耳Nucleus 植入的植入者",
+                "Nucleus 8 声音处理器适用於植入相容科利耳Nucleus 植入的植入者。",
               specialty: "耳鼻咽喉科",
             },
             ja: {
               title:
                 "Nucleus 8 Sound Processor\nNucleus 8 人工内耳サウンドプロセッサ",
               description:
-                "Nucleus 8サウンドプロセッサは、互換性のあるCochlear Nucleusインプラントを植込んだ患者に適用する。",
+                "Nucleus 8サウンドプロセッサは、互換性のあるコクレアNucleusインプラントを装着した装用者に適応する。",
               specialty: "耳鼻咽喉科",
             },
             en: {
               title:
                 "Nucleus 8 Sound Processor\nNucleus 8 Cochlear Implant Sound Processor",
               description:
-                "The Nucleus 8 sound processor is intended for recipients implanted with compatible Cochlear Nucleus implants.",
+                "The Nucleus 8 Sound Processor is indicated for recipients implanted with a compatible Cochlear Nucleus implant.",
               specialty: "Otorhinolaryngology",
             },
           },
@@ -15390,6 +15772,7 @@
           id: 568,
           category: "device",
           number: 362,
+          info: { department: "耳鼻喉科", approvalRegion: "欧盟", approvalDate: "2024年12月13日" },
           langs: {
             zh: {
               title:
@@ -15470,6 +15853,7 @@
           id: 571,
           category: "device",
           number: 365,
+          info: { department: "耳鼻喉科", approvalRegion: "欧盟", approvalDate: "2025年03月14日" },
           langs: {
             zh: {
               title: "声音处理器SONNET 3 Audio\nProcessor",
@@ -15480,13 +15864,13 @@
             ja: {
               title: "サウンドプロセッサ SONNET 3 Audio Processor",
               description:
-                "MED-EL人工内耳インプラントおよび聴性脳幹インプラントシステム用のサウンドプロセッサで、聴覚を喚起するために使用する。",
+                "MED-EL人工内耳インプラントおよび聴覚脳幹インプラントシステム用のサウンドプロセッサであり、聴覚を喚起するために使用する。",
               specialty: "耳鼻咽喉科",
             },
             en: {
               title: "Sound Processor SONNET 3 Audio Processor",
               description:
-                "A sound processor for MED-EL cochlear implants and auditory brainstem implant systems, used to evoke hearing.",
+                "A sound processor for MED-EL cochlear implants and auditory brainstem implant systems, used to elicit hearing.",
               specialty: "Otorhinolaryngology",
             },
           },
@@ -15495,6 +15879,7 @@
           id: 572,
           category: "device",
           number: 366,
+          info: { department: "耳鼻喉科", approvalRegion: "日本", approvalDate: "2025年11月12日" },
           langs: {
             zh: {
               title: "耳科手术术前规划软件",
@@ -15597,6 +15982,7 @@
           id: 576,
           category: "device",
           number: 370,
+          info: { department: "耳鼻喉科", approvalRegion: "欧盟", approvalDate: "2026年6月30日" },
           langs: {
             zh: {
               title: "数字一体化骨导助听系统（Contact\nForte）",
@@ -15623,6 +16009,7 @@
           id: 577,
           category: "device",
           number: 371,
+          info: { department: "耳鼻喉科", approvalRegion: "欧盟", approvalDate: "2026年6月30日" },
           langs: {
             zh: {
               title: "数字骨导助听系统Contact mini",
@@ -15633,13 +16020,13 @@
             ja: {
               title: "デジタル骨導補聴システム Contact mini",
               description:
-                "Contact miniは、音を処理して内耳に伝達することで聴力損失を補償することを目的とする。",
+                "Contact miniは、音を処理して内耳へ伝達することにより聴力損失を補うことを目的とする。",
               specialty: "耳鼻咽喉科",
             },
             en: {
               title: "Digital Bone-Conduction Hearing System Contact mini",
               description:
-                "Contact mini is intended to compensate for hearing loss by processing sound and transmitting it to the inner ear.",
+                "The Contact mini is intended to compensate for hearing loss by processing sound and transmitting it to the inner ear.",
               specialty: "Otorhinolaryngology",
             },
           },
@@ -15699,6 +16086,7 @@
           id: 580,
           category: "device",
           number: 374,
+          info: { department: "儿科", spec: "0.5ml/支1ml/支", approvalRegion: "美国" },
           langs: {
             zh: {
               title: "药物输送系统\n(Dosage delivery\nsystems )",
@@ -15724,6 +16112,7 @@
           id: 581,
           category: "device",
           number: 375,
+          info: { department: "儿科", approvalRegion: "欧盟", approvalDate: "2026年7月17日" },
           langs: {
             zh: {
               title: "闭环胰岛素输注系统（Insulin\nManagement System）",
@@ -15751,6 +16140,7 @@
           id: 582,
           category: "device",
           number: 376,
+          info: { department: "儿科", spec: "1套（含1台主机，20片电极）", landingDate: "2025年6月3日" },
           langs: {
             zh: {
               title:
@@ -15805,6 +16195,7 @@
           id: 584,
           category: "device",
           number: 378,
+          info: { department: "病理科", spec: "250测试/盒", approvalRegion: "美国", domesticListed: "是", domesticDate: "2024年1月18日 适用范围：鼠单克隆阴性质控抗体预期用于实验室中在 BenchMark IHC/ISH 仪器上作为福尔马林固定、 石蜡包埋组织切片 中小鼠免疫球蛋白非特异性结合的质控。" },
           langs: {
             zh: {
               title: "Negative Control(Monoclonal)\n鼠单克隆阴性质控抗体",
@@ -15882,6 +16273,7 @@
           id: 587,
           category: "device",
           number: 381,
+          info: { department: "病理科、医学检验科", spec: "30测试/盒", approvalRegion: "美国", approvalDate: "2025年12月09日" },
           langs: {
             zh: {
               title: "实体肿瘤基因变异全景检测试剂盒",
@@ -15907,6 +16299,7 @@
           id: 588,
           category: "device",
           number: 382,
+          info: { department: "生殖健康与不孕症专业", spec: "50ml", approvalRegion: "美国", landingDate: "2026年3月27日" },
           langs: {
             zh: {
               title: "辅助生殖用培养基",
@@ -15916,13 +16309,13 @@
             ja: {
               title: "生殖補助医療用培養液",
               description:
-                "ヒト胚を受精卵から胚盤胞期まで培養し、胚移植に使用する。",
+                "ヒト胚の受精卵から胚盤胞までの培養および胚移植に使用する。",
               specialty: "生殖医療・不妊症科",
             },
             en: {
               title: "Culture Medium for Assisted Reproduction",
               description:
-                "Culture of human embryos from fertilized egg to blastocyst stage; embryo transfer.",
+                "For culture of human embryos from zygote to blastocyst stage and for embryo transfer.",
               specialty: "Reproductive Health and Infertility",
             },
           },
@@ -15931,6 +16324,7 @@
           id: 589,
           category: "device",
           number: 383,
+          info: { department: "重症医学科、普外科", spec: "ThIR-A615", approvalRegion: "美国", approvalDate: "2026年5月13日" },
           langs: {
             zh: {
               title: "红外系统(热成像车)（Thermidas IR\nSystem）",
@@ -16010,6 +16404,7 @@
           id: 592,
           category: "food",
           number: 3,
+          info: { spec: "60gx6" },
           langs: {
             zh: {
               title: "乐奔拓专膳特殊医学用途糖尿病全营养配方食品",
@@ -16168,6 +16563,7 @@
           id: 598,
           category: "food",
           number: 9,
+          info: { spec: "406mg/粒(120粒/瓶)" },
           langs: {
             zh: {
               title: "瑞士青草地牌胆碱黑果腺肋花楸黑萝卜胶囊",
@@ -16247,6 +16643,7 @@
           id: 601,
           category: "food",
           number: 12,
+          info: { spec: "600mg/粒（60 粒/盒）" },
           langs: {
             zh: {
               title: "Lit-Control牌柠檬酸钾可可胶囊",
@@ -16272,6 +16669,7 @@
           id: 602,
           category: "food",
           number: 13,
+          info: { spec: "850mg/粒(200粒/瓶)" },
           langs: {
             zh: {
               title: "䓲能牌辅酶Q10姜黄软胶囊",
@@ -16347,6 +16745,7 @@
           id: 605,
           category: "food",
           number: 16,
+          info: { spec: "500mg/粒(100粒/瓶)" },
           langs: {
             zh: {
               title: "加莱康牌海豹油软胶囊",
@@ -16372,6 +16771,7 @@
           id: 606,
           category: "food",
           number: 17,
+          info: { spec: "680mg/粒(120粒/瓶)" },
           langs: {
             zh: {
               title: "䓲能牌芹菜籽姜黄胶囊",
@@ -16397,6 +16797,7 @@
           id: 607,
           category: "food",
           number: 18,
+          info: { spec: "800mg/粒(120粒/瓶)" },
           langs: {
             zh: {
               title: "䓲能牌淫羊藿枸杞地黄胶囊",
@@ -16422,6 +16823,7 @@
           id: 608,
           category: "food",
           number: 19,
+          info: { spec: "376mg/粒 (200粒/瓶)" },
           langs: {
             zh: {
               title: "䓲能牌蔓越莓胶囊",
@@ -16443,31 +16845,7 @@
             },
           },
         },
-        {
-          id: 610,
-          category: "drug",
-          number: 207,
-          langs: {
-            zh: {
-              title: "达沙替尼片",
-              description:
-                "新诊断的费城染色体阳性（Ph+）慢性期慢性髓性白血病（CML）成人患者；对既往治疗（包括伊马替尼）耐药或不耐受的慢性期、加速期、髓系或淋系急变期Ph+CML成人患者；对既往治疗耐药或不耐受的费城染色体阳性急性淋巴细胞白血病（Ph+ALL）成人患者；1岁及以上Ph+慢性期CML儿科患者；1岁及以上新诊断的Ph+ALL儿科患者（联合化疗）。",
-              specialty: "血液内科",
-            },
-            ja: {
-              title: "ダサチニブ錠（PHYRAGO）",
-              description:
-                "新たに診断されたフィラデルフィア染色体陽性（Ph+）慢性期慢性骨髄性白血病（CML）の成人患者。既往治療（イマチニブを含む）に耐性または不耐容の慢性期・加速期・髄系または淋系急性転化期Ph+CML成人患者。既往治療に耐性または不耐容のPh+急性リンパ性白血病（Ph+ALL）成人患者。1歳以上のPh+慢性期CML小児患者。1歳以上の新規診断Ph+ALL小児患者（化学療法との併用）。",
-              specialty: "血液内科",
-            },
-            en: {
-              title: "Dasatinib Tablets (PHYRAGO)",
-              description:
-                "Adults with newly diagnosed Philadelphia chromosome-positive (Ph+) chronic-phase chronic myeloid leukemia (CML); adults with chronic-, accelerated-, or myeloid/lymphoid-blast-phase Ph+ CML resistant or intolerant to prior therapy including imatinib; adults with Ph+ acute lymphoblastic leukemia (Ph+ ALL) resistant or intolerant to prior therapy; pediatric patients aged 1 year and older with Ph+ chronic-phase CML; pediatric patients aged 1 year and older with newly diagnosed Ph+ ALL (in combination with chemotherapy).",
-              specialty: "Hematology",
-            },
-          },
-        },
+
       ];
     </script>
     <script>
@@ -16596,6 +16974,11 @@
               })[m],
           );
         }
+        const INFO_LABELS = {
+          zh: { department: "科室", dosageForm: "剂型", spec: "规格", approvalRegion: "获批地区/国家", approvalDate: "获批时间", landingDate: "首次落地时间", domesticListed: "国内上市", domesticDate: "国内上市时间" },
+          ja: { department: "診療科", dosageForm: "剤形", spec: "規格", approvalRegion: "承認地域・国", approvalDate: "承認年月日", landingDate: "初回導入日", domesticListed: "国内上市状況", domesticDate: "国内上市日" },
+          en: { department: "Department", dosageForm: "Dosage Form", spec: "Specification", approvalRegion: "Approved Region/Country", approvalDate: "Approval Date", landingDate: "First Landing Date", domesticListed: "Listed in China", domesticDate: "China Listing Date" },
+        };
         function render() {
           const rows = filtered();
           countEl.textContent = `${rows.length} ${text("results")}`;
@@ -16605,7 +16988,17 @@
             const l = p.langs[productLang];
             const card = document.createElement("article");
             card.className = "product-card";
-            card.innerHTML = `<div class="product-meta"><span class="badge ${p.category}">${esc(catLabel(p.category, site()))}</span><span>No. ${p.number}</span>${l.specialty ? `<span>· ${esc(l.specialty)}</span>` : ""}</div><h3>${esc(l.title).replace(/\n/g, "<br>")}</h3><div class="product-desc">${esc(l.description)}</div><button class="details-btn" type="button">${text("details")}</button>`;
+            const il = INFO_LABELS[productLang] || INFO_LABELS.zh;
+            const infoRows = p.info
+              ? Object.entries(p.info)
+                  .filter(([k]) => il[k])
+                  .map(
+                    ([k, v]) =>
+                      `<div class="product-info-row"><span class="product-info-label">${esc(il[k])}</span><span>${esc(v)}</span></div>`,
+                  )
+                  .join("")
+              : "";
+            card.innerHTML = `<div class="product-meta"><span class="badge ${p.category}">${esc(catLabel(p.category, site()))}</span><span>No. ${p.number}</span>${l.specialty ? `<span>· ${esc(l.specialty)}</span>` : ""}</div><h3>${esc(l.title).replace(/\n/g, "<br>")}${p.isNew ? ` <span class="badge new">NEW</span>` : ""}</h3><div class="product-desc">${esc(l.description)}</div>${infoRows ? `<div class="product-info">${infoRows}</div>` : ""}<button class="details-btn" type="button">${text("details")}</button>`;
             const btn = card.querySelector(".details-btn");
             btn.addEventListener("click", () => {
               card.classList.toggle("expanded");
