@@ -923,7 +923,7 @@
                 <strong>208</strong><span>Pharmaceuticals</span>
               </div>
               <div class="mini-stat">
-                <strong>384+</strong><span>Medical Devices</span>
+                <strong>384</strong><span>Medical Devices</span>
               </div>
               <div class="mini-stat">
                 <strong>20</strong><span>Food Products</span>
@@ -1250,33 +1250,6 @@
               description:
                 "Manufacturer: GenMont Biotech Co., Ltd. (Taiwan)\nCategory: Health food\nForeign name: 固醣樂ADR-1益生菌膠囊\nTarget population: People with elevated blood glucose\nDosage: Once daily, 2 capsules on an empty stomach before breakfast.\nPrecautions: For temporary-import use within the Boao Lecheng Pilot Zone only; not a substitute for medication.",
               specialty: "Health Food",
-            },
-          },
-        },
-        {
-          id: 610,
-          category: "drug",
-          number: 207,
-          info: { department: "肿瘤内科", dosageForm: "片剂", spec: "20mg/片:100盒 50mg/片:100盒", approvalRegion: "加拿大", landingDate: "2026年8月26日" },
-
-          langs: {
-            zh: {
-              title: "达沙替尼片",
-              description:
-                "新诊断的费城染色体阳性（Ph+）慢性期慢性髓性白血病（CML）成人患者；对既往治疗（包括伊马替尼）耐药或不耐受的慢性期、加速期、髓系或淋系急变期Ph+CML成人患者；对既往治疗耐药或不耐受的费城染色体阳性急性淋巴细胞白血病（Ph+ALL）成人患者；1岁及以上Ph+慢性期CML儿科患者；1岁及以上新诊断的Ph+ALL儿科患者（联合化疗）。",
-              specialty: "血液内科",
-            },
-            ja: {
-              title: "ダサチニブ錠（PHYRAGO）",
-              description:
-                "新たに診断されたフィラデルフィア染色体陽性（Ph+）慢性期慢性骨髄性白血病（CML）の成人患者。既往治療（イマチニブを含む）に耐性または不耐容の慢性期・加速期・髄系または淋系急性転化期Ph+CML成人患者。既往治療に耐性または不耐容のPh+急性リンパ性白血病（Ph+ALL）成人患者。1歳以上のPh+慢性期CML小児患者。1歳以上の新規診断Ph+ALL小児患者（化学療法との併用）。",
-              specialty: "血液内科",
-            },
-            en: {
-              title: "Dasatinib Tablets (PHYRAGO)",
-              description:
-                "Adults with newly diagnosed Philadelphia chromosome-positive (Ph+) chronic-phase chronic myeloid leukemia (CML); adults with chronic-, accelerated-, or myeloid/lymphoid-blast-phase Ph+ CML resistant or intolerant to prior therapy including imatinib; adults with Ph+ acute lymphoblastic leukemia (Ph+ ALL) resistant or intolerant to prior therapy; pediatric patients aged 1 year and older with Ph+ chronic-phase CML; pediatric patients aged 1 year and older with newly diagnosed Ph+ ALL (in combination with chemotherapy).",
-              specialty: "Hematology",
             },
           },
         },
@@ -6496,6 +6469,33 @@
               description:
                 "Treatment of hemolytic anemia in adults with paroxysmal nocturnal hemoglobinuria (PNH); also used for adults and adolescents aged 12 to 17 years with C3 glomerulopathy (C3G) or primary immune-complex membranoproliferative glomerulonephritis (IC-MPGN).",
               specialty: "Nephrology, Hematology",
+            },
+          },
+        },
+        {
+          id: 610,
+          category: "drug",
+          number: 207,
+          info: { department: "肿瘤内科", dosageForm: "片剂", spec: "20mg/片:100盒 50mg/片:100盒", approvalRegion: "加拿大", landingDate: "2026年8月26日" },
+
+          langs: {
+            zh: {
+              title: "达沙替尼片",
+              description:
+                "新诊断的费城染色体阳性（Ph+）慢性期慢性髓性白血病（CML）成人患者；对既往治疗（包括伊马替尼）耐药或不耐受的慢性期、加速期、髓系或淋系急变期Ph+CML成人患者；对既往治疗耐药或不耐受的费城染色体阳性急性淋巴细胞白血病（Ph+ALL）成人患者；1岁及以上Ph+慢性期CML儿科患者；1岁及以上新诊断的Ph+ALL儿科患者（联合化疗）。",
+              specialty: "血液内科",
+            },
+            ja: {
+              title: "ダサチニブ錠（PHYRAGO）",
+              description:
+                "新たに診断されたフィラデルフィア染色体陽性（Ph+）慢性期慢性骨髄性白血病（CML）の成人患者。既往治療（イマチニブを含む）に耐性または不耐容の慢性期・加速期・髄系または淋系急性転化期Ph+CML成人患者。既往治療に耐性または不耐容のPh+急性リンパ性白血病（Ph+ALL）成人患者。1歳以上のPh+慢性期CML小児患者。1歳以上の新規診断Ph+ALL小児患者（化学療法との併用）。",
+              specialty: "血液内科",
+            },
+            en: {
+              title: "Dasatinib Tablets (PHYRAGO)",
+              description:
+                "Adults with newly diagnosed Philadelphia chromosome-positive (Ph+) chronic-phase chronic myeloid leukemia (CML); adults with chronic-, accelerated-, or myeloid/lymphoid-blast-phase Ph+ CML resistant or intolerant to prior therapy including imatinib; adults with Ph+ acute lymphoblastic leukemia (Ph+ ALL) resistant or intolerant to prior therapy; pediatric patients aged 1 year and older with Ph+ chronic-phase CML; pediatric patients aged 1 year and older with newly diagnosed Ph+ ALL (in combination with chemotherapy).",
+              specialty: "Hematology",
             },
           },
         },
@@ -17198,7 +17198,7 @@
                   )
                   .join("")
               : "";
-            card.innerHTML = `<div class="product-meta"><span class="badge ${p.category}">${esc(catLabel(p.category, site()))}</span><span>No. ${p.number}</span>${l.specialty ? `<span>· ${esc(l.specialty)}</span>` : ""}</div><h3>${esc(l.title).replace(/\n/g, "<br>")}${p.isNew ? ` <span class="badge new">NEW</span>` : ""}</h3><div class="product-desc">${esc(l.description)}</div>${infoRows ? `<div class="product-info">${infoRows}</div>` : ""}<button class="details-btn" type="button">${text("details")}</button>`;
+            card.innerHTML = `<div class="product-meta"><span class="badge ${p.category}">${esc(catLabel(p.category, site()))}</span><span>No. ${p.number}</span>${p.isNew ? `<span class="badge new">NEW</span>` : ""}${l.specialty ? `<span>· ${esc(l.specialty)}</span>` : ""}</div><h3>${esc(l.title).replace(/\n/g, "<br>")}</h3><div class="product-desc">${esc(l.description)}</div>${infoRows ? `<div class="product-info">${infoRows}</div>` : ""}<button class="details-btn" type="button">${text("details")}</button>`;
             const btn = card.querySelector(".details-btn");
             btn.addEventListener("click", () => {
               card.classList.toggle("expanded");
