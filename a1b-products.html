@@ -4,6 +4,9 @@
 :root{--ink:#172033;--mut:#667085;--line:#e5e7eb;--paper:#f6f7fa;--card:#fff;--acc:#1d5f8a;--shadow:0 10px 28px rgba(23,32,51,.06)}
 *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","Noto Sans JP","PingFang SC",Arial,sans-serif;line-height:1.6}
 header{background:#fff;border-bottom:1px solid var(--line);padding:22px 18px 16px;position:sticky;top:0;z-index:10}
+.hdr-btn{position:fixed;top:8px;right:8px;z-index:99;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:var(--shadow);opacity:.92}
+.hdr-btn:hover{opacity:1}
+body.hdr-off header{display:none}
 .wrap{max-width:1180px;margin:auto} .eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.13em;color:var(--acc)}
 h1{font-size:23px;margin:4px 0 2px} .sub{color:var(--mut);font-size:13px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
@@ -66,7 +69,9 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:18px}
 <button class="filter" data-f="特保">特保</button>
 <button class="filter" data-f="FFC">FFC</button>
 <button class="filter" data-f="病者用">病者用</button>
-</div></div></header><main>
+</div></div></header>
+<button class="hdr-btn" id="hdrBtn" aria-label="切换抬头显示">收起抬头 ▲</button>
+<main>
 <div class="legend">六维拆账口径：<code>PRODUCT_SCORE = 0.20×MATCH + 0.25×EVIDENCE + 0.20×CHANNEL + 0.15×COMPLIANCE + 0.10×DIFF + 0.10×SUPPLY</code>；M=病种匹配 E=证据 C=渠道 合规=中国宣称红线 D=差异化 S=供应。同一产品在不同病种下 MATCH/总分不同。C=100 双平台无同款（空白机会） · C=50 单侧 · C=0 双侧在售（检索 2026-11-13）。</div>
 <div class="cards"><article class="card" data-maker="明治" data-cat="病者用"
 data-search="明治リーナレンLP 明治Renal LP肾病用低蛋白营养液 株式会社明治 明治 病者用 低たんぱく・リン・カリウム調整組成 部分蛋白尿性肾病的辅助膳食管理 晚期肾病个体化营养支持 慢性肾脏病 D29 D30 D07 M-明治-016">
@@ -2854,6 +2859,11 @@ data-search="クリーム玄米ブラン(定番シリーズ) 奶油糙米麸常�
 </main>
 <footer>GibReaL05 生成 · 源：a1b_maker_pool.jsonl（87款）+ a1b_product_candidates.jsonl（338入选记录，逐条六维+rationale，加权复算全吻合）· 主报告 chronic_disease_product_research_A1b.html §7 病种中心视图互为镜像</footer>
 <script>
+const hb=document.getElementById('hdrBtn');
+function setHdr(on){document.body.classList.toggle('hdr-off',!on);hb.textContent=on?'收起抬头 ▲':'展开抬头 ▼';try{localStorage.setItem('a1b_hdr',on?'1':'0')}catch(e){}}
+let hdrOn=true;try{hdrOn=localStorage.getItem('a1b_hdr')!=='0'}catch(e){}
+setHdr(hdrOn);
+hb.addEventListener('click',()=>setHdr(document.body.classList.contains('hdr-off')));
 const cards=[...document.querySelectorAll('.card')],q=document.getElementById('q'),empty=document.getElementById('empty');
 let f='';
 function apply(){const s=q.value.trim().toLowerCase();let n=0;
